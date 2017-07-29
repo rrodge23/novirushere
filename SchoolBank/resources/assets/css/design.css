@@ -1,0 +1,35 @@
+.nav li.active a{
+    background-color: #009785 !important;
+}
+
+.modal-width{
+    width: 300px !important;
+}
+
+.nav-tabs > li.active > a{
+    background-color:transparent !important;
+    border: 1px solid #ddd !important;
+    border-bottom:5px solid #ddd !important;
+    color:black !important;
+    
+}
+    /*DATE PICKER*/
+.dtp div.dtp-date, .dtp div.dtp-time{
+    background:#999999 !important;
+}
+.dtp .p10 > a{
+    color:white !important;
+}
+.dtp > .dtp-content > .dtp-date-view > header.dtp-header{
+    background:#009785 !important;
+}
+.dtp .p10{
+    width:30% !important;
+    padding-left:24% !important;
+}
+
+    /*CLIENT TRANSACTION*/
+table#clientTransTbl.dataTable tbody td{
+    color:#009785 !important;
+    padding: 1px 20px !important;
+}
