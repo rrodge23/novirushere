@@ -1,6 +1,14 @@
 
-$(document).ready(function(){
+/***************GREETINGS***************/
+        $(window).on('load',function() {
+            $(".loader").fadeOut("slow");
+        });
+/***************GREETINGS***************/
 
+
+
+$(document).ready(function(){
+    
     /***************GREETINGS***************/
     var thehours = new Date().getHours();
 	var themessage;
@@ -14,13 +22,13 @@ $(document).ready(function(){
         $('#evening-greetings').addClass('hidden');
 		themessage = morning;
 
-	} else if (thehours >= 12 && thehours < 17) {
+	} else if (thehours >= 12 && thehours < 18) {
         $('#morning-greetings').addClass('hidden');
         $('#afternoon-greetings').removeClass('hidden');
         $('#evening-greetings').addClass('hidden');
 		themessage = afternoon;
 
-	} else if (thehours >= 17 && thehours < 24) {
+	} else if (thehours >= 18 && thehours < 24) {
         $('#morning-greetings').addClass('hidden');
         $('#afternoon-greetings').addClass('hidden');
         $('#evening-greetings').removeClass('hidden');
@@ -31,7 +39,7 @@ $(document).ready(function(){
     /***************END GREETINGS***************/
 
 //////// END GRAPH /////
-
+       
        //HOME TABLE CHECKBOX
        $('#theadcheckbox').change(function () {
             if ($(this).prop('checked')) {
@@ -84,7 +92,17 @@ $(document).ready(function(){
             });
         }
 
-        
+
+        //DROPDOWN REPORTS
+
+        if($('#sidebarReportsCollapse').hasClass('active')){
+            if(window.location.pathname == "/view/page/trans_hist.php"){
+                $('#sidebarcollapse').addClass('in');
+            }
+        }
+        //DATATABLES
+        $('#myTable2').DataTable();
+        $('#myTable1').DataTable();
 
         $('#form-search').on('click',function(){
             $('#mdl-search-accid.in').modal('hide');

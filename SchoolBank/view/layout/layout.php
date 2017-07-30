@@ -10,6 +10,14 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <?php 
+                    if($_SESSION['users']['user_level'] == 1)
+                        $usrLvl = "Admin";
+                    else if($_SESSION['users']['user_level'] == 2)
+                        $usrLvl = "Staff";
+                    else if($_SESSION['users']['user_level'] == 3)
+                        $usrLvl = "CRO";
+                    else $usrLvl = "Cashier/BM";
+
                     if($_SESSION['users']['user_level'] == 1){
                         $navDash="";
                         $navDept="";
@@ -98,13 +106,13 @@
                         <p>Clients</p>
                     </a>
                 </li>   
-                <li id="sidebarcollapse" class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/reports.php' ? 'active' : '';echo ' ' . $navReports; ?> '>
+                <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/reports.php' ? 'active' : '';echo ' ' . $navReports; ?> '>
                     <a href='#' data-target='.collapseone' data-toggle='collapse'> 
                         <i class='material-icons'>assessment</i>
                         <p>Reports<b class='caret float-right' style='margin-top: 13px;'></b></p>
                     </a>
-                    <ul class='nav collapse collapseone' aria-expanded='true' style='margin-top: 0px !important;'>
-                        <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/trans_hist.php' ? 'active' : ''; ?> '>
+                    <ul id="sidebarcollapse" class='nav collapse collapseone' aria-expanded='true' style='margin-top: 0px !important;'>
+                        <li id="sidebarReportsCollapse" class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/trans_hist.php' ? 'active' : ''; ?> '>
                            <a href='/view/page/trans_hist.php'>Transaction History</a>
                         </li>
                         
@@ -139,7 +147,7 @@
                         <table style="margin-top:10px;">
                             <tr>
                                 <td>
-                                    <p class="font-product" style="color:white;margin:10px;margin-right:20px;"><?=$_SESSION['users']['nickname']; ?></p>
+                                    <p class="font-product" style="color:white;margin:10px;margin-right:20px;margin-bottom:0px;"><?=$_SESSION['users']['nickname']; ?></p><p style="margin:0 !important;font-size:10px;color:white;" class="padding-left10"><?=$usrLvl ?></p>
                                 </td>
                                 <td>
                                     <li class="dropdown" style="margin-right:50px;">

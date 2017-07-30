@@ -40,4 +40,9 @@
 </head>
 
 <body>
+    <div class="loader">
+        <div class="load-image">
+            <img src="/resources/assets/image/page-loader.gif" alt="">
+        </div>
+    </div>
 

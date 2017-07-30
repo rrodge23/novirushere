@@ -39,7 +39,7 @@
                 ATTENTION !
             </h4>
             <p>
-                Create an announcement <strong>HERE !</strong>
+                Create an announcement to all users <strong>HERE !</strong>
             </p>
         </div>
     </div>
