@@ -1,6 +1,6 @@
                 </div>
              </div>
-            <footer class="footer">
+            <footer class="footer" style="bottom:0 !important;">
                     <div class="container-fluid">
                         <nav class="pull-left">
                             <ul>

@@ -34,7 +34,7 @@
                     }
 
                     if($_SESSION['users']['user_level'] == 2){
-                        $navDash="hidden";
+                        $navDash="";
                         $navDept="hidden";
                         $navProd="hidden";
                         $navClient="";
@@ -49,7 +49,7 @@
                     }
 
                     if($_SESSION['users']['user_level'] == 3){
-                        $navDash="hidden";
+                        $navDash="";
                         $navDept="hidden";
                         $navProd="hidden";
                         $navClient="hidden";
@@ -64,7 +64,7 @@
                     }
 
                     if($_SESSION['users']['user_level'] == 4){
-                        $navDash="hidden";
+                        $navDash="";
                         $navDept="hidden";
                         $navProd="hidden";
                         $navClient="hidden";

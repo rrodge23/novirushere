@@ -41,8 +41,6 @@
 
 <body>
     <div class="loader">
-        <div class="load-image">
-            <img src="/resources/assets/image/page-loader.gif" alt="">
-        </div>
+        <img src="/resources/assets/image/magniloader.gif" id="loadergif">
     </div>
 
