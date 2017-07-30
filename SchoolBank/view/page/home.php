@@ -45,6 +45,14 @@
                 Create an announcement to all users <strong>HERE !</strong>
             </p>
         </div>
+        <div class="alert-message alert-message-success box-shadow-panel">
+            <h4>
+                IMPORTANT !
+            </h4>
+            <p>
+                accounts table ID and client_info table AID database <strong>SHOULD</strong> be <strong>EQUAL</strong>
+            </p>
+        </div>
     </div>
 
     

@@ -343,6 +343,13 @@
                                             <span class='help-block'></code></span>
                                         </div>
                                     </div>
+                                    <div class='form-group'>
+                                        <label for='stat' class='control-label col-md-4'>Status</label>
+                                        <div class='col-md-8'>
+                                            <input readonly='readonly' type='text' class='form-control padding-left10 ' id='stat' name='stat' required='required'>
+                                            <span class='help-block'><code></code></span>
+                                        </div>
+                                    </div>
                                     <div>
                                         <h3 style="color:#009785;margin-top:80px;" class="font-product margin-left-30">NAME:</h3>
                                     </div>
@@ -648,13 +655,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class='form-group'>
-                                        <label for='stat' class='control-label col-md-4'>Status</label>
-                                        <div class='col-md-8'>
-                                            <input readonly='readonly' type='text' class='form-control padding-left10 ' id='stat' name='stat' required='required'>
-                                            <span class='help-block'><code></code></span>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

@@ -79,33 +79,31 @@
                     }
 
                 ?>
-                            <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/home.php' ? 'active' : ''; echo ' ' .$navDash;?> '>
-                                <a href='/view/page/home.php'> 
-                                    <i class='material-icons'>dashboard</i>
-                                    <p>Dashboard</p>
-                                </a>
-                            </li>
-                                
-                            <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/departments.php' ? 'active' : '';echo ' ' . $navDept; ?>'>
-                                <a href='/view/page/departments.php'>
-                                    <i class='material-icons'>view_compact</i>
-                                    <p>Departments</p>
-                                </a>
-                            </li>
-                            <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/products.php' ? 'active' : '';echo ' ' . $navProd; ?> '>
-                                <a href='/view/page/products.php'>
-                                    <i class='material-icons'>donut_small</i>
-                                    
-                                    <p>Products</p>
-                                </a>
-                            </li>
-
+                <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/home.php' ? 'active' : ''; echo ' ' .$navDash;?> '>
+                    <a href='/view/page/home.php'> 
+                        <i class='material-icons'>dashboard</i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
                 <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/clients.php' ? 'active' : '';echo ' ' . $navClient; ?> '>
                     <a href='/view/page/clients.php'>
                         <i class='material-icons'>account_box</i>
                         <p>Clients</p>
                     </a>
-                </li>   
+                </li>     
+                <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/departments.php' ? 'active' : '';echo ' ' . $navDept; ?>'>
+                    <a href='/view/page/departments.php'>
+                        <i class='material-icons'>view_compact</i>
+                        <p>Departments</p>
+                    </a>
+                </li>
+                <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/products.php' ? 'active' : '';echo ' ' . $navProd; ?> '>
+                    <a href='/view/page/products.php'>
+                        <i class='material-icons'>donut_small</i>
+                        
+                        <p>Products</p>
+                    </a>
+                </li>  
                 <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/trans_hist.php' ? 'active' : '';echo ' ' . $navReports; ?> '>
                     <a href='#' data-target='.collapseone' data-toggle='collapse'> 
                         <i class='material-icons'>assessment</i>
@@ -131,7 +129,7 @@
     </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute" style="box-shadow: 0 0.2rem 0.4rem rgba(0,0,0,0.23) !important;background-color: #009587;">
+        <nav class="box-shadow navbar navbar-transparent navbar-absolute" style="background-color: #009587;">
             <div class="container-fluid" style="height:50px !important;">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">

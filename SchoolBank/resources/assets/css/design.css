@@ -126,7 +126,7 @@ table#clientTransTbl.dataTable tbody td{
 .loader {
     position:fixed;
 	z-index: 9998;
-    opacity: .7;
+    opacity: .6;
     width: 100% !important;
 	height: 100% !important;
     background-color:white;
@@ -136,9 +136,20 @@ table#clientTransTbl.dataTable tbody td{
     position: fixed;
     left:50%;
     top:50%;
-    margin-top:-15%;
-    margin-left:-15%;
+    margin-top:-5%;
+    margin-left:-5%;
     z-index: 9999;
 }
 
 /***** END PAGE LOADER *************/
+
+
+/***** BUTTON PAGINATION *************/
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color:#009785 !important;
+    border:none !important;
+    box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+/***** END BUTTON PAGINATION *************/
+
+
