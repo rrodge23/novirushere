@@ -4,157 +4,31 @@ $(document).ready(function(){
     /***************GREETINGS***************/
     var thehours = new Date().getHours();
 	var themessage;
-	var morning = ('Good morning');
-	var afternoon = ('Good afternoon');
-	var evening = ('Good evening');
+	var morning = ('GOOD MOorning');
+	var afternoon = ('Good Afternoon');
+	var evening = ('Good Evening');
 
 	if (thehours >= 0 && thehours < 12) {
-		themessage = morning; 
+        $('#morning-greetings').removeClass('hidden');
+        $('#afternoon-greetings').addClass('hidden');
+        $('#evening-greetings').addClass('hidden');
+		themessage = morning;
 
 	} else if (thehours >= 12 && thehours < 17) {
+        $('#morning-greetings').addClass('hidden');
+        $('#afternoon-greetings').removeClass('hidden');
+        $('#evening-greetings').addClass('hidden');
 		themessage = afternoon;
 
 	} else if (thehours >= 17 && thehours < 24) {
+        $('#morning-greetings').addClass('hidden');
+        $('#afternoon-greetings').addClass('hidden');
+        $('#evening-greetings').removeClass('hidden');
 		themessage = evening;
 	}
 
 	$('.greeting').append(themessage);
     /***************END GREETINGS***************/
-
-
-
-
-
-    $('#myTable2').DataTable();
-    $('#myTable1').DataTable();
-    
-    $(function(){
-         var chart = new CanvasJS.Chart("chartContainer",
-        {
-        title:{
-        text: "TOTAL AMOUNT PER MONTH"   
-        },
-        axisY:{
-            title:"Year(2017)"   
-        },
-        animationEnabled: true,
-        data: [
-        {        
-            type: "stackedColumn",
-            toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}Pesos",
-            name: "Total Amount",
-            showInLegend: "false",
-            dataPoints: [
-            {  y: 1000 , label: "jan"},
-            {  y: 500, label: "feb" },
-            {  y: 120, label: "mar" },
-            {  y: 423, label: "apr" },
-            {  y: 61, label: "may"},
-            {  y: 45, label: "jun"},
-            {  y: 123, label: "jul"},
-            {  y: 100, label: "aug"},
-            {  y: 1000, label: "sept"},
-            {  y: 10, label: "oct"},
-            {  y: 1000, label: "nov"},
-            {  y: 100, label: "dec"}
-            ]
-        }]
-        /*legend:{
-            cursor:"pointer",
-            itemclick: function(e) {
-            if (typeof (e.dataSeries.visible) ===  "undefined" || e.dataSeries.visible) {
-                e.dataSeries.visible = false;
-            }
-            else
-            {
-                e.dataSeries.visible = true;
-            }
-            chart.render();
-            }
-        }*/
-        });
-
-        chart.render();
-
-        ////
-       ///
-        var chartSpline = new CanvasJS.Chart("chartSpline",
-        {
-            animationEnabled: true,
-            theme: "theme4",
-            title:{
-                text: "Total Interest Per Month"
-            },
-            axisY:[{
-            lineColor: "#4F81BC",
-            tickColor: "#4F81BC",
-            labelFontColor: "#4F81BC",
-            titleFontColor: "#4F81BC",
-            lineThickness: 2,
-            },
-            {
-            lineColor: "#C0504E",
-            tickColor: "#C0504E",
-            labelFontColor: "#C0504E",
-            titleFontColor: "#C0504E",
-            lineThickness: 2,
-            
-            }],
-            data: [
-            {
-                type: "spline", //change type to bar, line, area, pie, etc
-                showInLegend: true,        
-                dataPoints: [
-                    { x: 10, label: "jan" },
-                    { x: 20, label: "feb" },
-                    { x: 30, label: "mar" },
-                    { x: 40, label: "apr" },
-                    { x: 50, label: "may" },
-                    { x: 60, label: "jun" },
-                    { x: 70, label: "jul" },
-                    { x: 80, label: "aug" },
-                    { x: 90, label: "sept"},
-                    { x: 90, label: "oct"},
-                    { x: 90, label: "nov"},
-                    { x: 90, label: "dec"}
-                ]
-                },
-                {
-                type: "spline",
-                            axisYIndex: 1,
-                showInLegend: true,            
-                dataPoints: [
-                    { x: 10, y: 201 },
-                    { x: 20, y: 404},
-                    { x: 30, y: 305 },
-                    { x: 40, y: 405 },
-                    { x: 50, y: 905 },
-                    { x: 60, y: 508 },
-                    { x: 70, y: 108 },
-                    { x: 80, y: 300 },
-                    { x: 90, y: 101}
-                ]
-            }
-        
-            ],
-            legend: {
-                cursor: "pointer",
-                itemclick: function (e) {
-                    if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                        e.dataSeries.visible = false;
-                    } else {
-                        e.dataSeries.visible = true;
-                }
-                chartSpline.render();
-                }
-            }
-        });
-
-        chartSpline.render();
-    });
-    ////////
-
-  
 
 //////// END GRAPH /////
 
@@ -234,6 +108,8 @@ $(document).ready(function(){
        $('#myTable').DataTable();
 
         //DROPDOWN
+        
+        
        $(".select").dropdown({ "autoinit" : "withripple" });
 
        //
@@ -568,7 +444,8 @@ $(document).ready(function(){
                    $('#city').val(data.cityprovince);
                    $('select[data-dropdownjs][disabled]#city + .dropdownjs > input').val(data.cityprovince);
                    $('#zipcode').val(data.zipcode);
-                   $('#birthdate').val(data.birthdate);
+                   var date = data.birthdate.split(' ');
+                   $('#birthdate').val(date[0]);
                    $('#birthplace').val(data.birthplace);
                    $('#tel_no').val(data.tel_no);
                    $('#zipcode').val(data.zipcode);
@@ -729,12 +606,13 @@ $(document).ready(function(){
 
         /******************** END VIEW CLIENT ACCOUNT************************/
         /******************** UPDATE CLIENT ************************/
-        $('#mdl-btn-update-client').on('click',function(){
-            
+        $('#mdl-btn-update-client').on('click',function(e){
+            e.preventDefault();
             $(this).addClass('hidden');
             $('.mdl-user-input-update').prop('disabled', false);
             $('#mdl-btn-saveUpdate-client').removeClass('hidden');
-            return false;
+            $('#clientEditDropdownButton').dropdown('toggle');
+            
         });
 
         $('#mdl-btn-saveUpdate-client').on('click',function(e){

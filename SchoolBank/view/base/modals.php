@@ -15,7 +15,7 @@
                     <form method="POST" action="/app/controller/mdl-clientView.php">
                         <div class="row" style="height:675px;">
                             <div class="col-md-4" style="height:100%;">
-                                <div class="box-shadow-panel" style="padding-top:10px !important;height:100%;">
+                                <div class="" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:10px !important;height:100%;">
                                     <div>
                                         <h3 style="color:#009785;" class="font-product margin-left-30">NAME:</h3>
                                     </div>
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4" style="height:100%">
-                                <div class="box-shadow-panel" style="padding-top:10px !important;height:100%;">
+                                <div class="" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:10px !important;height:100%;">
                                     <div>
                                         <h3 style="color:#009785;" class="font-product margin-left-30">LOCATION:</h3>
                                     </div>
@@ -246,7 +246,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4" style="height:100%;">
-                                <div class="box-shadow-panel" style="padding-top:10px !important;padding-bottom:415px !important;">
+                                <div class="" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:10px !important;padding-bottom:415px !important;">
                                     <div>
                                         <h3 style="color:#009785;" class="font-product margin-left-30">Product/Department:</h3>
                                     </div>
@@ -315,7 +315,7 @@
                    
                     <h4 class="modal-title float-left color-white font-product">ACCOUNT INFO</h4>
                     <div class="dropdown btn-group float-right">
-                        <button rel="tooltip" data-original-title="Settings" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" style="background-color:transparent !important;border-radius:50%;height:25px !important;width:25px !important;padding:0px !important;" type="button">
+                        <button rel="tooltip" data-original-title="Settings" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" style="background-color:transparent !important;border-radius:50%;height:25px !important;width:25px !important;padding:0px !important;" type="button" id="clientEditDropdownButton">
                             <i class="material-icons">settings</i>
                         </button>
                         <ul class="dropdown-menu" role="menu">
