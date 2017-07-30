@@ -41,6 +41,6 @@
 
 <body>
     <div class="loader">
-        <img src="/resources/assets/image/magniloader.gif" id="loadergif">
+        <img src="/resources/assets/image/loadertime.gif" id="loadergif">
     </div>
 

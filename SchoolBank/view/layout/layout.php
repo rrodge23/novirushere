@@ -106,7 +106,7 @@
                         <p>Clients</p>
                     </a>
                 </li>   
-                <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/reports.php' ? 'active' : '';echo ' ' . $navReports; ?> '>
+                <li class='<?php echo $_SERVER['REQUEST_URI'] == '/view/page/trans_hist.php' ? 'active' : '';echo ' ' . $navReports; ?> '>
                     <a href='#' data-target='.collapseone' data-toggle='collapse'> 
                         <i class='material-icons'>assessment</i>
                         <p>Reports<b class='caret float-right' style='margin-top: 13px;'></b></p>
@@ -132,7 +132,7 @@
 
     <div class="main-panel">
         <nav class="navbar navbar-transparent navbar-absolute" style="box-shadow: 0 0.2rem 0.4rem rgba(0,0,0,0.23) !important;background-color: #009587;">
-            <div class="container-fluid">
+            <div class="container-fluid" style="height:50px !important;">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -142,9 +142,9 @@
                     </button>
                     
                 </div>
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" style="padding-top:0px !important;">
                     <ul class="nav navbar-nav navbar-right float-right">
-                        <table style="margin-top:10px;">
+                        <table style="">
                             <tr>
                                 <td>
                                     <p class="font-product" style="color:white;margin:10px;margin-right:20px;margin-bottom:0px;"><?=$_SESSION['users']['nickname']; ?></p><p style="margin:0 !important;font-size:10px;color:white;" class="padding-left10"><?=$usrLvl ?></p>
@@ -155,8 +155,8 @@
                                             <i class="material-icons">person</i>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li id="logout"><a href="/app/controller/auth/logout.php" class="font-product" style="color:#009785;">Logout</a></li>                                
-                                            <li id="chnge_pass"><a href="/view/auth/changePass.php" class="font-product" style="color:#009785;">Change Password</a></li>                                
+                                            <li id="logout"><a style="font-weight:bold;font-size:13px !important;" href="/app/controller/auth/logout.php" class="font-product" style="color:#009785;">Logout</a></li>                                
+                                            <li id="chnge_pass"><a style="font-weight:bold;font-size:13px !important;" href="/view/auth/changePass.php" class="font-product" style="color:#009785;">Change Password</a></li>                                
                                         </ul>
                                     </li>
                                 </td>
