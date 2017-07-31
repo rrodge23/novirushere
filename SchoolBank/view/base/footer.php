@@ -38,6 +38,8 @@
     <script src= "<?php echo ASSET; ?>js/material.min.js" type="text/javascript"></script>
     <script src= "<?php echo ASSET; ?>js/moment.js" type="text/javascript"></script>
     <script src= "<?php echo ASSET; ?>js/datepicker.js" type="text/javascript"></script>
+    <script src= "<?php echo ASSET; ?>js/semantic-ui.js" type="text/javascript"></script>
+    <script src= "<?php echo ASSET; ?>js/semantic-components/semantic.js" type="text/javascript"></script>
     <script src= "<?php echo ASSET; ?>js/canvas.js" type="text/javascript"></script>
     <script src= "<?php echo ASSET; ?>js/jquery-dropdown.js" type="text/javascript"></script>
     <script src= "<?php echo ASSET; ?>js/sweetalert.js" type="text/javascript"></script>

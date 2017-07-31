@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-10" style="margin-top:20px;padding-left:10px;border-left:1px solid #ddd;">
             <h2 class="greeting" style="float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"></h2>
-            <h2 style="float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"><?=", ".$_SESSION['users']['nickname']." !"?></h2>
+            <h2 style="margin-top:0px;float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"><?=", ".$_SESSION['users']['nickname']." !"?></h2>
         </div>
     </div>
     <div class="row hidden" id="afternoon-greetings">
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-10" style="margin-top:20px;padding-left:10px;border-left:1px solid #ddd;">
             <h2 class="greeting" style="float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"></h2>
-            <h2 style="float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"><?=", ".$_SESSION['users']['nickname']." !"?></h2>
+            <h2 style="margin-top:0px;float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"><?=", ".$_SESSION['users']['nickname']." !"?></h2>
         </div>
     </div>
     <div class="row hidden" id="evening-greetings">
@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-10" style="margin-top:20px;padding-left:10px;border-left:1px solid #ddd;">
             <h2 class="greeting" style="float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"></h2>   
-            <h2 style="float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"><?=", ".$_SESSION['users']['nickname']." !"?></h2>
+            <h2 style="margin-top:0px;float:left;color:#009785;font-family:'Arial Black', Gadget, sans-serif;"><?=", ".$_SESSION['users']['nickname']." !"?></h2>
         </div>
     </div>
     <div class="row">
@@ -50,7 +50,8 @@
                 IMPORTANT !
             </h4>
             <p>
-                accounts table ID and client_info table AID database <strong>SHOULD</strong> be <strong>EQUAL</strong>
+                accounts table ID and client_info table AID incrementation in database <strong>SHOULD</strong> be <strong>EQUAL</strong><br>
+                <strong>DO NOT</strong> Delete Transaction History
             </p>
         </div>
     </div>

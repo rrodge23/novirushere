@@ -1,4 +1,6 @@
 
+
+
 /***************GREETINGS***************/
         $(window).on('load',function() {
             $(".loader").fadeOut("slow");
@@ -12,7 +14,7 @@ $(document).ready(function(){
     /***************GREETINGS***************/
     var thehours = new Date().getHours();
 	var themessage;
-	var morning = ('GOOD MOorning');
+	var morning = ('Good Morning');
 	var afternoon = ('Good Afternoon');
 	var evening = ('Good Evening');
 
@@ -241,24 +243,79 @@ $(document).ready(function(){
                 },
                 function(isConfirm) {
                 if (isConfirm) {
-                    $.ajax({
-                    url:url,
-                    type:type,
-                    data:frm.serialize()+"&mode=transPostDeposit",
-                    dataType:"json",
-                    success:function(data){
-                        
-                        if(data == true){
-                            swal({title: "Success", text: "Success !", type: "success"},
-                                function(){ 
-                                    location.reload();
-                                }
-                            );
-                        }else{
-                            swal("Cancelled !", "there is an error", "error");
+
+                    if($('#deposit_amount').val() >= 500){
+                        swal({
+                            title: "Maximum Amount Exceed !",
+                            text: "Enter Admin Password",
+                            type: "input",
+                            inputType: "password",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            inputPlaceholder: "Enter Password"
+                            }, function (inputValue) {
+                                
+                                $.ajax({
+                                    type:"POST",
+                                    url:"/app/controller/auth/permission.php",
+                                    dataType:"json",
+                                    success:function(session){
+                                        
+                                        if (inputValue === false) return false;
+                                        if (inputValue === "") {
+                                            swal.showInputError("Fill Out Field");
+                                            return false
+                                        }
+                                    
+                                        if (inputValue == session.cro || inputValue == session.cashier) {
+                                            $.ajax({
+                                            url:url,
+                                            type:type,
+                                            data:frm.serialize()+"&mode=transPostDeposit",
+                                            dataType:"json",
+                                            success:function(data){
+                                                
+                                                if(data == true){
+                                                    swal({title: "Success", text: "Success !", type: "success"},
+                                                        function(){ 
+                                                            location.reload();
+                                                        }
+                                                    );
+                                                }else{
+                                                    swal("Cancelled !", "there is an error", "error");
+                                                }
+                                            }
+                                            });
+                                        }else
+                                        {
+                                            swal.showInputError("Incorrect Password");
+                                            return false
+                                        }
+                                    }
+                                });                                
+                            });
+                    }else{
+                        $.ajax({
+                        url:url,
+                        type:type,
+                        data:frm.serialize()+"&mode=transPostDeposit",
+                        dataType:"json",
+                        success:function(data){
+                            
+                            if(data == true){
+                                swal({title: "Success", text: "Success !", type: "success"},
+                                    function(){ 
+                                        location.reload();
+                                    }
+                                );
+                            }else{
+                                swal("Cancelled !", "there is an error", "error");
+                            }
                         }
+                        });
                     }
-                    });
+
+                    
                     
                 } else {
                     swal("Cancelled", "Transaction Cancelled !", "error");
@@ -322,24 +379,79 @@ $(document).ready(function(){
                 },
                 function(isConfirm) {
                 if (isConfirm) {
-                    $.ajax({
-                    url:url,
-                    type:type,
-                    data:frm.serialize()+"&mode=transPostWithdrawal",
-                    dataType:"json",
-                    success:function(data){
-                        
-                        if(data == true){
-                            swal({title: "Success", text: "Success !", type: "success"},
-                                function(){ 
-                                    location.reload();
+
+
+                    if($('#withdrawal_amount').val() >= 500){
+                        swal({
+                            title: "Maximum Amount Exceed !",
+                            text: "Enter Admin Password",
+                            type: "input",
+                            inputType: "password",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            inputPlaceholder: "Enter Password"
+                            }, function (inputValue) {
+                                
+                                $.ajax({
+                                    type:"POST",
+                                    url:"/app/controller/auth/permission.php",
+                                    dataType:"json",
+                                    success:function(session){
+                                        
+                                        if (inputValue === false) return false;
+                                        if (inputValue === "") {
+                                            swal.showInputError("Fill Out Field");
+                                            return false
+                                        }
+                                    
+                                        if (inputValue == session.cro || inputValue == session.cashier) {
+                                            $.ajax({
+                                                url:url,
+                                                type:type,
+                                                data:frm.serialize()+"&mode=transPostWithdrawal",
+                                                dataType:"json",
+                                                success:function(data){
+                                                    
+                                                    if(data == true){
+                                                        swal({title: "Success", text: "Success !", type: "success"},
+                                                            function(){ 
+                                                                location.reload();
+                                                            }
+                                                        );
+                                                    }else{
+                                                        swal("Cancelled !", "there is an error", "error");
+                                                    }
+                                                }
+                                            });
+                                        }else
+                                        {
+                                            swal.showInputError("Incorrect Password");
+                                            return false
+                                        }
+                                    }
+                                });                                
+                            });
+                    }else{
+                        $.ajax({
+                            url:url,
+                            type:type,
+                            data:frm.serialize()+"&mode=transPostWithdrawal",
+                            dataType:"json",
+                            success:function(data){
+                                
+                                if(data == true){
+                                    swal({title: "Success", text: "Success !", type: "success"},
+                                        function(){ 
+                                            location.reload();
+                                        }
+                                    );
+                                }else{
+                                    swal("Cancelled !", "there is an error", "error");
                                 }
-                            );
-                        }else{
-                            swal("Cancelled !", "there is an error", "error");
-                        }
+                            }
+                        });
                     }
-                    });
+                    
                     
                 } else {
                     swal("Cancelled", "Transaction Cancelled !", "error");
@@ -490,7 +602,7 @@ $(document).ready(function(){
         });
         /**************************************************/
         /******************** ADD CLIENT ************************/
-        $('#btnActAcc').on('click',function(){
+        $('#btnActAcc').on('submit',function(){
             var btn = $(this);
             
             swal({
@@ -528,9 +640,7 @@ $(document).ready(function(){
                                     swal.showInputError("Fill Out Field");
                                     return false
                                 }
-                                console.log(inputValue);
-                                console.log(session.cro);
-                                console.log(session.cashier);
+                               
                                 if (inputValue == session.cro || inputValue == session.cashier) {
                                     var frm = btn.closest('form');
                                     var url = frm.attr('action');   
@@ -1471,31 +1581,85 @@ $(document).ready(function(){
        /******************* ADD USER *********************/
         $('#addUser').on('click',function(){
             var btn = $(this);
-            var frm = btn.closest('form');
-            var url = frm.attr('action');   
-            var type = frm.attr('method');
-            
-            $.ajax({
-                url:url,
-                type:type,
-                data:frm.serialize()+"&mode=addUser",
-                dataType:"json",
-                success:function(data){
-                   if(data == true){
-                            swal({title: "Success", text: "User Successfully Added !", type: "success"},
-                                function(){ 
-                                    location.reload();
-                                }   
-                            );
-                    }else{
-                        swal("Error !", "there was an error in Activating User please Check The Details and try again.", "error");
-                    }
+
+            swal({
+                title: "Are you sure?",
+                text: "You want to Activate this User ?",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Activate",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: false,
+                closeOnCancel: false,
+                allowOutsideClick: false,
+                },
+                function(isConfirm) {
+                if (isConfirm) {
+                   var frm = btn.closest('form');
+                    var url = frm.attr('action');   
+                    var type = frm.attr('method');
+                    
+                    $.ajax({
+                        url:url,
+                        type:type,
+                        data:frm.serialize()+"&mode=addUser",
+                        dataType:"json",
+                        success:function(data){
+                        if(data == true){
+                                    swal({title: "Success", text: "User Successfully Added !", type: "success"},
+                                        function(){ 
+                                            location.reload();
+                                        }   
+                                    );
+                            }else{
+                                swal("Error !", "there was an error in Activating User please Check The Details and try again.", "error");
+                            }
+                        }
+                    });
+                    
+                } else {
+                    swal("Cancelled", "User Activation Cancelled !", "error");
                 }
             });
+            
             return false;
         });
        /******************* END ADD USER *********************/
        
        ///****************** END USER **********************///
 
+       ///****************** LOGIN **********************///
+       $('.ui.form')
+        .form({
+          fields: {
+            email: {
+              identifier  : 'email',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your e-mail'
+                },
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid e-mail'
+                }
+              ]
+            },
+            password: {
+              identifier  : 'password',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your password'
+                },
+                {
+                  type   : 'length[1]',
+                  prompt : 'Your password must be at least 4 characters'
+                }
+              ]
+            }
+          }
+        })
+      ;
 });

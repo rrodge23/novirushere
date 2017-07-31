@@ -15,7 +15,7 @@
                     <form method="POST" action="/app/controller/mdl-clientView.php">
                         <div class="row" style="height:675px;">
                             <div class="col-md-4" style="height:100%;">
-                                <div class="" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:10px !important;height:100%;">
+                                <div class="" style="padding-top:10px !important;height:100%;">
                                     <div>
                                         <h3 style="color:#009785;" class="font-product margin-left-30">NAME:</h3>
                                     </div>
@@ -76,6 +76,7 @@
                                     <div class="form-group modal-width margin-left-30">
                                         <label for="cityAddC">City/Province</label>
                                         <select id="cityAddC" class="form-control select" name="city">
+                                            
                                             <option value="Caloocan">Caloocan</option>
                                             <option value="Las Piñas">Las Piñas</option>
                                             <option value="Makati ">Makati </option>
@@ -311,7 +312,7 @@
       <div class="modal-dialog"style="width: 90% !important;margin-top:30px !important;">
 
             <div class="modal-content">
-                <div class="modal-header" style="background-color: #009785 !important;line-height:75px !important;height:75px !important;">
+                <div class="modal-header box-shadow" style="background-color: #009785 !important;line-height:75px !important;height:75px !important;">
                    
                     <h4 class="modal-title float-left color-white font-product">ACCOUNT INFO</h4>
                     <div class="dropdown btn-group float-right">
@@ -330,7 +331,7 @@
                         <input type="hidden" id="AID" name="AID">
                         
                         <input type="hidden" id="created_at" name="created_at">
-                        <div class="row" style="height:550px;">
+                        <div class="row" style="height:600px;">
                             <div class="col-md-4" style="height:100%;">
                                 <div class="" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:10px !important;height:100%;">
                                     <div class='form-group'>
@@ -972,8 +973,10 @@
                                     <div class="form-group margin-left-30" style="width: 210% !important;">
                                         <label for="update_userlevel">ROLE</label>
                                         <select id="update_userlevel" class="form-control select" name="update_userlevel" required="required">
-                                            <option value='1'>admin</option>
-                                            <option value='2'>staff</option>
+                                            <option value='1'>ADMIN</option>
+                                            <option value='2'>TELLER</option>
+                                            <option value='3'>CRO</option>
+                                            <option value='4'>BM/CASHIER</option>
                                         </select>
                                     </div>
                                 </td>

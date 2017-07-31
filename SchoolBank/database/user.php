@@ -85,7 +85,7 @@
 
 		public function activateUser($data){
 
-			if($data['user_level'] == 3 || $data['user_level'] == 4){
+			if($data['user_level'] != 2){
 				$con = $this->conn;
 				$sql = "SELECT * FROM users WHERE user_level LIKE '{$data['user_level']}'";
 				$result = $con->query($sql);
@@ -93,7 +93,7 @@
 					return false;
 				}
 			}
-
+			
             $con = $this->conn;
 			$sql = "SELECT * FROM users WHERE UID NOT LIKE '{$data['UID']}' AND username LIKE '".$data['username']."'";
 			$result = $con->query($sql);
@@ -115,6 +115,15 @@
 		}
 
 		public function deleteUser($data=NULL){
+			$con = $this->conn;
+            $sql = "SELECT * FROM users WHERE UID LIKE '".$data."'";
+            $result = $con->query($sql);
+			if($result->num_rows > 0){
+				$userData = $result->fetch_assoc();
+				if($userData['user_level'] == 1){
+					return false;
+				}
+			}
 			$con = $this->conn;
             $sql = "DELETE FROM users WHERE UID LIKE '".$data."'";
             $result = $con->query($sql);

@@ -30,8 +30,10 @@
     <link href= "<?php echo ASSET; ?>css/dataTables.css" rel="stylesheet" type="text/css"/>
     <link href= "<?php echo ASSET; ?>css/datepicker.css" rel="stylesheet" type="text/css"/>
     <link href= "<?php echo ASSET; ?>css/dataTables-bootstrap4.css" rel="stylesheet" type="text/css"/>
+    <link href= "<?php echo ASSET; ?>css/semantic-ui.css" rel="stylesheet" type="text/css"/>
     <link href= "<?php echo ASSET; ?>css/jquery-dropdown.css" rel="stylesheet" type="text/css"/>
     <link href= "<?php echo ASSET; ?>css/sweetalert.css" rel="stylesheet" type="text/css"/>
+    <link href= "<?php echo ASSET; ?>css/semantic-components/semantic.css" rel="stylesheet" type="text/css"/>
     <link href= "<?php echo ASSET; ?>css/design.css" rel="stylesheet" type="text/css"/>
     <link href= "<?php echo ASSET; ?>css/common.css" rel="stylesheet" type="text/css"/>
     <script src= "<?php echo ASSET; ?>js/jquery-3.1.0.min.js" type="text/javascript"></script>

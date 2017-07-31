@@ -2,11 +2,6 @@
     include "../../view/base/header.php";
     include "../layout/layout.php";
     include "../../app/controller/homeController.php";
-    if($_SESSION['users']['user_level'] == 1){
-        $auth = "";
-    }else{
-        $auth = "hidden";
-    }
 ?>
         <div class="row">
             <h1 class="font-product margin-left-30">TRANSACTION HISTORY</h1>
@@ -32,7 +27,13 @@
                                 <td class="text-center font-roboto color-a2">Amount</td>
                                 <td class="text-center font-roboto color-a2">Total Amount</td>
                                 <td class="text-center font-roboto color-a2">Teller</td>
-                                <td class="<?=$auth;?> text-center font-roboto color-a2">ACTION</td>
+                                <?php
+                                    if($_SESSION['users']['user_level'] == 1){
+                                        echo "
+                                            <td class='text-center font-roboto color-a2'>ACTION</td>
+                                        ";
+                                    }
+                                ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,16 +54,22 @@
                                                 <td class='text-center'>$amount</td>
                                                 <td class='text-center'>$total_amount</td>
                                                 <td class='text-center'>$teller</td>
-                                                <td class='text-center $auth'>
                                                 
-                                                <form method='POST' action='/app/controller/mdl-transCtrl.php'>
-                                                    <button data-id='$id' rel='tooltip' data-original-title='Delete' class='btn-delete-trans btn btn-raised btn-sm margin-left-30' type='submit' name='deleteTrans'>
-                                                        <i class='material-icons'>delete</i>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                            </tr>
+                                            
                                         ";
+
+                                        if($_SESSION['users']['user_level'] == 1){
+                                            echo "
+                                                <td class='text-center'>
+                                                    <form method='POST' action='/app/controller/mdl-transCtrl.php'>
+                                                        <button data-id='$id' rel='tooltip' data-original-title='Delete' class='btn-delete-trans btn btn-raised btn-sm margin-left-30' type='submit' name='deleteTrans'>
+                                                            <i class='material-icons'>delete</i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            ";
+                                        }
+                                        echo "</tr>";
                                     }
                                 }
                                 
@@ -81,7 +88,14 @@
                                 <td class="text-center font-roboto color-a2">Amount</td>
                                 <td class="text-center font-roboto color-a2">Total Amount</td>
                                 <td class="text-center font-roboto color-a2">Teller</td>
-                                <td class="<?=$auth;?> text-center font-roboto color-a2">ACTION</td>
+                                <?php
+                                    if($_SESSION['users']['user_level'] == 1){
+                                        echo "
+                                            <td class='text-center font-roboto color-a2'>ACTION</td>
+                                        ";
+                                    }
+                                ?>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -102,16 +116,20 @@
                                                 <td class='text-center'>$amount</td>
                                                 <td class='text-center'>$total_amount</td>
                                                 <td class='text-center'>$teller</td>
-                                                <td class='$auth text-center'>
-                                                
-                                                <form method='POST' action='/app/controller/mdl-deptView.php'>
-                                                    <button data-id='$id' rel='tooltip' data-original-title='Delete' class='btn-delete-trans btn btn-raised btn-sm margin-left-30 $authButtonTransHistDelete' type='submit' name='deleteTrans'>
-                                                        <i class='material-icons'>delete</i>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                            </tr>
+                                            
                                         ";
+                                        if($_SESSION['users']['user_level'] == 1){
+                                            echo "
+                                                <td class='text-center'>
+                                                    <form method='POST' action='/app/controller/mdl-deptView.php'>
+                                                        <button data-id='$id' rel='tooltip' data-original-title='Delete' class='btn-delete-trans btn btn-raised btn-sm margin-left-30' type='submit' name='deleteTrans'>
+                                                            <i class='material-icons'>delete</i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            ";
+                                        }
+                                        echo "</tr>";
                                     }
                                 }
                                 
