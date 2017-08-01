@@ -137,8 +137,9 @@
 		}
 
 		public function updateUser($data=NULL){
+			
             $con = $this->conn;
-            $sql = "SELECT * FROM users WHERE username LIKE '{$data['update_username']}' AND UID NOT LIKE '{$data['update_UID']}' ";
+            $sql = "SELECT * FROM users WHERE username LIKE '{$data['update_username']}' OR nickname LIKE '{$data['update_nickname']}' AND UID NOT LIKE '{$data['update_UID']}' ";
             $result = $con->query($sql);
 			if($result->num_rows > 0){
 				return false;

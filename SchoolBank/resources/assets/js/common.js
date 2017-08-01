@@ -85,7 +85,7 @@ $(document).ready(function(){
            
             $(window).keypress(function (e) {
                 if (e.keyCode === 32) {
-                     if($('#modalAdd').hasClass('in') || $('#mdl-view-client').hasClass('in') || $('#mdl-deposit').hasClass('in') || $('#mdl-withdrawal').hasClass('in')){
+                     if($('#modalAdd').hasClass('in') || $('#mdl-view-client').hasClass('in') || $('#mdl-deposit').hasClass('in') || $('#mdl-withdrawal').hasClass('in') || $('#mdl-search-accid').hasClass('in')){
 
                      }else{
                          $('#mdl-search-accid').modal('show');
@@ -224,7 +224,8 @@ $(document).ready(function(){
 
        /******************* DEPOSIT *********************/
       
-        $('#mdl-btn-post-trans-deposit').on('click',function(){
+        $('#post-deposit-form').on('submit',function(e){
+            
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');   
@@ -242,6 +243,7 @@ $(document).ready(function(){
                 allowOutsideClick: false,
                 },
                 function(isConfirm) {
+                
                 if (isConfirm) {
 
                     if($('#deposit_amount').val() >= 500){
@@ -267,11 +269,11 @@ $(document).ready(function(){
                                             return false
                                         }
                                     
-                                        if (inputValue == session.cro || inputValue == session.cashier) {
+                                        if (inputValue == session.cashier) {
                                             $.ajax({
                                             url:url,
                                             type:type,
-                                            data:frm.serialize()+"&mode=transPostDeposit",
+                                            data:frm.serialize(),
                                             dataType:"json",
                                             success:function(data){
                                                 
@@ -298,7 +300,7 @@ $(document).ready(function(){
                         $.ajax({
                         url:url,
                         type:type,
-                        data:frm.serialize()+"&mode=transPostDeposit",
+                        data:frm.serialize(),
                         dataType:"json",
                         success:function(data){
                             
@@ -360,7 +362,8 @@ $(document).ready(function(){
        /******************* END WITHDRAWAL VIEW *********************/
 
        /******************* WITHDRAWAL *********************/
-            $('#mdl-btn-post-trans-withdrawal').on('click',function(){
+            $('#mdl-btn-post-trans-withdrawal').on('submit',function(){
+           
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');   
@@ -404,7 +407,7 @@ $(document).ready(function(){
                                             return false
                                         }
                                     
-                                        if (inputValue == session.cro || inputValue == session.cashier) {
+                                        if (inputValue == session.cashier) {
                                             $.ajax({
                                                 url:url,
                                                 type:type,
@@ -602,7 +605,7 @@ $(document).ready(function(){
         });
         /**************************************************/
         /******************** ADD CLIENT ************************/
-        $('#btnActAcc').on('submit',function(){
+        $('#add-client-form').on('submit',function(){
             var btn = $(this);
             
             swal({
@@ -646,12 +649,11 @@ $(document).ready(function(){
                                     var url = frm.attr('action');   
                                     var type = frm.attr('method');
                                     $.ajax({
-                                        url:url,
+                                        url:"/app/controller/mdl-clientView.php",
                                         type:type,
-                                        data:frm.serialize()+"&mode=addClient",
+                                        data:frm.serialize(),
                                         dataType:"json",
                                         success:function(data){
-                                                
                                             if(data['validation'] == true){
                                                     swal({ html:true, title: "Activated", text: "Client ID: "+data["client_id"]+"<br><p class='float:left;'>Account ID: "+data["acc_no"]+"</p>", type: "success"},
                                                         function(){ 
@@ -712,7 +714,7 @@ $(document).ready(function(){
                             data.trans[key]['ID'],
                             transtype,
                             data.trans[key]['trans_date'],
-                            data.trans[key]['amount'],
+                            data.trans[key]['trans_type'] == 1 ? "+ "+data.trans[key]['amount'] : "- "+data.trans[key]['amount'],
                             data.trans[key]['teller'],
                             data.trans[key]['total_amount']
                         ]).draw(false);
@@ -743,12 +745,9 @@ $(document).ready(function(){
             
         });
 
-        $('#mdl-btn-saveUpdate-client').on('click',function(e){
-            e.preventDefault();
+        $('#update-client-form').on('submit',function(){
             var btn = $(this);
-            var frm = btn.closest('form');
-            var url = frm.attr('action');   
-            var type = frm.attr('method');
+            
             swal({
                 title: "Are you sure?",
                 text: "You want to update this profile ?",
@@ -787,10 +786,13 @@ $(document).ready(function(){
                                     return false
                                 }else
                                 {
+                                    var frm = $('#update-client-form');
+                                    var url = "/app/controller/mdl-clientView.php";   
+                                    var type = frm.attr('method');
                                     $.ajax({
                                     url:url,
                                     type:type,
-                                    data:frm.serialize()+"&mode=updateClient",
+                                    data:frm.serialize(),
                                     dataType:"json",
                                     success:function(data){
                                     
@@ -817,7 +819,6 @@ $(document).ready(function(){
                     swal("Cancelled", "Update Cancelled !", "error");
                 }
             });
-            
             
             
             return false;
@@ -918,7 +919,7 @@ $(document).ready(function(){
         
         /****************** ADD PRODUCT **************/
        
-       $('#mdl-btnAdd-product').on('click',function(){
+       $('#add-product-form').on('submit',function(){
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');   
@@ -940,7 +941,7 @@ $(document).ready(function(){
                     $.ajax({
                         url:url,
                         type:type,
-                        data:frm.serialize()+"&mode=addProd",
+                        data:frm.serialize(),
                         dataType:"json",
                         success:function(data){
                         if(data == true){
@@ -995,7 +996,7 @@ $(document).ready(function(){
             return false;
         });
 
-        $('#mdl-btn-saveUpdate-prod').on('click',function(){
+        $('#update-product-form').on('submit',function(){
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');
@@ -1041,7 +1042,7 @@ $(document).ready(function(){
                                     $.ajax({
                                     url:url,
                                     type:type,
-                                    data:frm.serialize()+"&mode=updateProd",
+                                    data:frm.serialize(),
                                     dataType:"json",
                                     success:function(data){
                                     
@@ -1245,7 +1246,7 @@ $(document).ready(function(){
             return false;
         });
 
-        $('#mdl-btn-saveUpdate-dept').on('click',function(){
+        $('#dept-update-form').on('submit',function(){
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');
@@ -1291,7 +1292,7 @@ $(document).ready(function(){
                                     $.ajax({
                                     url:url,
                                     type:type,
-                                    data:frm.serialize()+"&mode=deptUpdate",
+                                    data:frm.serialize(),
                                     dataType:"json",
                                     success:function(data){
                                     
@@ -1348,7 +1349,7 @@ $(document).ready(function(){
        /************************************************/
        /****************** ADD DEPARTMENT **************/
        
-       $('#mdl-addDepartment').on('click',function(){
+       $('#department-add-form').on('submit',function(){
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');   
@@ -1370,7 +1371,7 @@ $(document).ready(function(){
                     $.ajax({
                         url:url,
                         type:type,
-                        data:frm.serialize()+"&mode=addDept",
+                        data:frm.serialize(),
                         dataType:"json",
                         success:function(data){
                         if(data == true){
@@ -1421,7 +1422,7 @@ $(document).ready(function(){
        });
 
 
-        $('#mdl-btn-user-save-update').on('click',function(){
+        $('#update-user-form').on('submit',function(){
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');
@@ -1467,7 +1468,7 @@ $(document).ready(function(){
                                     $.ajax({
                                     url:url,
                                     type:type,
-                                    data:frm.serialize()+"&mode=userUpdate",
+                                    data:frm.serialize(),
                                     dataType:"json",
                                     success:function(data){
                                     
@@ -1579,7 +1580,7 @@ $(document).ready(function(){
        /******************* END DELETE USER *********************/
 
        /******************* ADD USER *********************/
-        $('#addUser').on('click',function(){
+        $('#add-user-form').on('submit',function(){
             var btn = $(this);
 
             swal({
@@ -1603,7 +1604,7 @@ $(document).ready(function(){
                     $.ajax({
                         url:url,
                         type:type,
-                        data:frm.serialize()+"&mode=addUser",
+                        data:frm.serialize(),
                         dataType:"json",
                         success:function(data){
                         if(data == true){
@@ -1633,17 +1634,14 @@ $(document).ready(function(){
        $('.ui.form')
         .form({
           fields: {
-            email: {
-              identifier  : 'email',
+            username: {
+              identifier  : 'username',
               rules: [
                 {
-                  type   : 'empty',
-                  prompt : 'Please enter your e-mail'
+                  type   : 'length[1]',
+                  prompt : 'minimum of 1 Characters'
                 },
-                {
-                  type   : 'email',
-                  prompt : 'Please enter a valid e-mail'
-                }
+                
               ]
             },
             password: {
@@ -1655,11 +1653,10 @@ $(document).ready(function(){
                 },
                 {
                   type   : 'length[1]',
-                  prompt : 'Your password must be at least 4 characters'
+                  prompt : 'Your password must be at least 1 characters'
                 }
               ]
             }
           }
-        })
-      ;
+        });
 });

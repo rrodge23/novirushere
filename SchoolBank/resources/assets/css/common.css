@@ -115,7 +115,3 @@ body{
     font-family: 'Product Sans',Arial,Helvetica,sans-serif !important;
 }
 
-div.dropdownjs > input.fakeinput{
-    width:93% !important;
-    margin-left:10px !important;
-}

@@ -55,7 +55,6 @@
                                                 AND lastname LIKE '{$data['lastname']}'
             ";
 
-
             $result = $con->query($sql);
             
 			if($result->num_rows > 0)

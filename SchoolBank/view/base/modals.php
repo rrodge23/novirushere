@@ -12,7 +12,8 @@
                 
                 <div class="container-fluid">
                     <br>
-                    <form method="POST" action="/app/controller/mdl-clientView.php">
+                    <form method="POST" action="" onsubmit="return false;" id="add-client-form">
+                    <input type="hidden" value="addClient" name="mode">
                         <div class="row" style="height:675px;">
                             <div class="col-md-4" style="height:100%;">
                                 <div class="" style="padding-top:10px !important;height:100%;">
@@ -45,14 +46,14 @@
                                         <input type="text" class="form-control" id="birthplaceAddC" name="birthplace" required="required">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div class="form-group modal-width margin-left-30">
+                                    <div class="form-group" style="margin-left:20px;width:92%;">
                                         <label for="genderAddC">Gender</label>
                                         <select id="genderAddC" class="form-control select" name="gender">
                                             <option value='Male'>Male</option>
                                             <option value='Female'>Female</option>
                                         </select>
                                     </div>
-                                    <div class="form-group modal-width margin-left-30">
+                                    <div class="form-group" style="margin-left:20px;width:92%;">
                                         <label for="civil_statAddC">Civil Status</label>
                                         <select id="civil_statAddC" class="form-control select" name="civil_stat">
                                             <option value='Single'>Single</option>
@@ -64,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4" style="height:100%">
-                                <div class="" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:10px !important;height:100%;">
+                                <div class="" style="padding-top:10px !important;height:100%;">
                                     <div>
                                         <h3 style="color:#009785;" class="font-product margin-left-30">LOCATION:</h3>
                                     </div>
@@ -73,7 +74,7 @@
                                         <input type="text" class="form-control" id="addressAddC" name="address" required="required">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div class="form-group modal-width margin-left-30">
+                                    <div class="form-group" style="margin-left:4.5%;padding:0 !important;width:92%;">
                                         <label for="cityAddC">City/Province</label>
                                         <select id="cityAddC" class="form-control select" name="city">
                                             
@@ -229,7 +230,7 @@
                                         <input type="text" class="form-control" id="zipcodeAddC" name="zipcode" required="required" pattern="[0-9]{4}">
                                         <span class="help-block">only composite numbers between 0 - 9</span>
                                     </div>
-                                    <div>
+                                    <div style="padding-top:20px;padding-bottom:20px;">
                                         <h3 style="color:#009785;" class="font-product margin-left-30">CONTACT:</h3>
                                     </div>
                                     <div>
@@ -247,7 +248,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4" style="height:100%;">
-                                <div class="" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:10px !important;padding-bottom:415px !important;">
+                                <div class="" style="padding-top:10px !important;height:100%;">
                                     <div>
                                         <h3 style="color:#009785;" class="font-product margin-left-30">Product/Department:</h3>
                                     </div>
@@ -327,8 +328,9 @@
                 
                 <div class="container-fluid">
                     <br>
-                    <form method="POST" action="/app/controller/mdl-clientView.php">
+                    <form method="POST" action="" id="update-client-form" onsubmit="return false;">
                         <input type="hidden" id="AID" name="AID">
+                        <input type="hidden" value="updateClient" name="mode">
                         
                         <input type="hidden" id="created_at" name="created_at">
                         <div class="row" style="height:600px;">
@@ -612,7 +614,7 @@
                                     <div class='form-group' style="margin-top:50px;">
                                         <label for='email' class='control-label col-md-4'>Email Address</label>
                                         <div class='col-md-8'>
-                                            <input disabled='disabled' type='text' class='mdl-user-input-update form-control padding-left10 ' id='email' name='email' required='required'>
+                                            <input disabled='disabled' type='email' class='mdl-user-input-update form-control padding-left10 ' id='email' name='email' required='required'>
                                             <span class='help-block'><code>Please enter a valid email address</code></span>
                                         </div>
                                     </div>
@@ -698,7 +700,8 @@
                    
                     <h4 class="modal-title float-left color-white font-product">INFO</h4>
                 </div>
-                <form action="/app/controller/mdl-deptView.php" method="POST">
+                <form action="/app/controller/mdl-deptView.php" method="POST" id="dept-update-form" onsubmit="return false;">
+                    <input type="hidden" name="mode" value="deptUpdate">
                     <div class="modal-body" id="mdl-body">
                         <div class='table-responsive'> 
                             <table>
@@ -766,7 +769,8 @@
                 </div>
                 
                 <div class="container-fluid">
-                    <form method="POST" action="/app/controller/mdl-deptView.php">
+                    <form method="POST" action="/app/controller/mdl-deptView.php" id="department-add-form" onsubmit="return false;">
+                        <input type="hidden" name="mode" value="addDept">
                         <div class="container inline" style="width: 45%;">
                             
                             <div class="form-group label-floating margin-left-30" style="width: 210% !important;">
@@ -813,7 +817,8 @@
                 </div>
                 
                 <div class="container-fluid">
-                    <form method="POST" action="/app/controller/mdl-prodView.php">
+                    <form method="POST" action="/app/controller/mdl-prodView.php" id="add-product-form" onsubmit="return false;">
+                        <input type="hidden" value="addProd" name="mode">
                         <div class="container inline" style="width: 45%;">
                             <div class="form-group label-floating margin-left-30" style="width: 210% !important;">
                                 <label for="i5i" class="control-label" >Product Name</label>
@@ -861,7 +866,8 @@
                 </div>
                 
                 <div class="container-fluid">
-                    <form method="POST" action="/app/controller/mdl-prodView.php">
+                    <form method="POST" action="/app/controller/mdl-prodView.php" id="update-product-form" onsubmit="return false;">
+                        <input type="hidden" name="mode" value="updateProd">
                         <table>
                             <tr>
                                 <td>
@@ -889,7 +895,7 @@
                                         <label for='DID' class='control-label col-md-4'>Interest Rate</label>
                                         <div class='col-md-8'>
                                             <input type='text' class=' form-control padding-left10 text-center' id='inter_rate' name='inter_rate' required='required' pattern="[0-9.]{1,3}">
-                                            <span class='help-block'></code></span>
+                                            <span class='help-block'>only composite numbers between 0-9</code></span>
                                         </div>
                                     </div>
                                     
@@ -939,11 +945,12 @@
                 </div>
                 
                 <div class="container-fluid">
-                    <form method="POST" action="/app/controller/mdl-accView.php">
+                    <form method="POST" action="/app/controller/mdl-accView.php" id="update-user-form" onsubmit="return false;">
                         <table>
                             <tr>
                                 <td>
                                     <input type="hidden" name="update_UID" id="update_UID">
+                                    <input type="hidden" name="mode" value="userUpdate">
                                 </td>
                             </tr>
                             <tr>
@@ -952,7 +959,7 @@
                                         <label for='firstname' class='control-label col-md-4'>USERNAME</label>
                                         <div class='col-md-8'>
                                             <input type='text' class='form-control padding-left10 ' id='update_username' name='update_username' required='required' pattern=".{6,}">
-                                            <span class='help-block'></code></span>
+                                            <span class='help-block'>Minimum of 6 Characters</code></span>
                                         </div>
                                     </div>
                                 </td>
@@ -1019,7 +1026,8 @@
                 </div>
                 
                 <div class="container-fluid">
-                    <form method="POST" action="/app/controller/mdl-accView.php">
+                    <form method="POST" action="/app/controller/mdl-accView.php" id="add-user-form" onsubmit="return false;">
+                        <input type="hidden" name="mode" value="addUser">
                         <table>
                             <tr>
                                 <td>
@@ -1033,7 +1041,7 @@
                                         <label for='username' class='control-label col-md-4'>USERNAME</label>
                                         <div class='col-md-8'>
                                             <input type='text' class='form-control padding-left10 ' id='username' name='username' required='required' pattern=".{6,}">
-                                            <span class='help-block'></code></span>
+                                            <span class='help-block'>minimum of 6 characters</code></span>
                                         </div>
                                     </div>
                                 </td>
@@ -1070,11 +1078,11 @@
                             <table style="float:right !important;">
                                 <tr>
                                     <td>
-                                        <button id="addUser" style="margin-left:10px !important;margin-right10px!important;" type="submit" class="btn btn-raised btn-secondary" name="actAcc_submit_prod"><i class="material-icons">playlist_add_check</i></button>
+                                        <button id="addUser" style="margin-left:10px !important;margin-right10px!important;" type="submit" class="btn btn-success btn-raised btn-secondary" name="actAcc_submit_prod"><i class="material-icons">playlist_add_check</i></button>
                             
                                     </td>
                                     <td>
-                                        <button style="margin-left:10px !important;margin-right10px!important;" type="submit" class="btn btn-raised btn-secondary margin-right-30 margin-buttom30" data-dismiss="modal"><i class="material-icons">close</i></button>
+                                        <button style="margin-left:10px !important;margin-right10px!important;" type="submit" class="btn btn-raised btn-danger btn-secondary margin-right-30 margin-buttom30" data-dismiss="modal"><i class="material-icons">close</i></button>
                                     </td>
                                 </tr>
                             </table>
@@ -1100,7 +1108,8 @@
             
             <div class="container-fluid">
                 
-                    <form method="POST" action="/app/controller/mdl-clientView.php">
+                    <form method="POST" action="/app/controller/mdl-clientView.php" onsubmit="return false;" id="post-deposit-form">
+                    <input type="hidden" name="mode" value="transPostDeposit">
                     <input type="hidden" name="status" id="mdl_deposit_status">
                     <input type="hidden" name="AID" id="mdl_deposit_AID">
                     <table>
@@ -1202,11 +1211,15 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>                      
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class='material-icons'>attach_money</i></span>
-                                                        <input tabindex="1" id="deposit_amount" type="text" class="form-control padding-left10" name="deposit_amount" placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus">
-                                                    </div>
+                                                <td>
+                                                    <div class='form-group' style="margin:0 !important;">
+                                                        <label for='deposit_amount' class='control-label col-md-1'><i class='material-icons'>attach_money</i></label>
+                                                        <div class='col-md-11'>
+                                                            <input tabindex="1" type='text' class='modal-width form-control padding-left10 ' id='deposit_amount' name='deposit_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus" style="padding-top:8px;">
+                                                            <span class='help-block'><code>numbers between 0-9. should not lesser than 1</code></span>
+                                                        </div>
+                                                    </div>                    
+                                                    
                                                 </td>
                                             </tr>
                                         </table>
@@ -1353,11 +1366,15 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>                      
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class='material-icons'>attach_money</i></span>
-                                                        <input tabindex="1" autofocus="autofocus" id="withdrawal_amount" type="text" class="form-control padding-left10" name="withdrawal_amount" placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required">
-                                                    </div>
+                                                <td>
+                                                
+                                                    <div class='form-group' style="margin:0 !important;">
+                                                        <label for='deposit_amount' class='control-label col-md-1'><i class='material-icons'>attach_money</i></label>
+                                                        <div class='col-md-11'>
+                                                            <input tabindex="1" type='text' class='modal-width form-control padding-left10 ' id='withdrawal_amount' name='withdrawal_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus" style="padding-top:8px;">
+                                                            <span class='help-block'><code>numbers between 0-9. should not lesser than 1</code></span>
+                                                        </div>
+                                                    </div>                         
                                                 </td>
                                             </tr>
                                             

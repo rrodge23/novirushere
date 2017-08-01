@@ -10,9 +10,6 @@
             <table style="width:100%;">
                 <tr>
                     <td>
-                        <h1 class="font-product margin-left-30">PRODUCTS</h1>    
-                    </td>
-                    <td>
                         <button rel="tooltip" data-original-title="Add Department" data-target="#modalProd" data-toggle="modal" class="margin-right-30 btn btn-white btn-round btn-just-icon" style="height: 50px; width: 50px; float: right !important;">
                             <i class='material-icons'>add</i>
                         </button>
@@ -50,11 +47,11 @@
                                     
                                     <form method='POST' action='/app/controller/mdl-prodView.php'>
                                         <input type='hidden' value='$id' name='PID'>
-                                        <button rel='tooltip' data-original-title='Update' class='btn btn-raised btn-sm btn-view-prod' type='submit' name='prodUpdate' data-id='$id'>
+                                        <button rel='tooltip' data-original-title='Update' class='btn btn-info btn-raised btn-sm btn-view-prod' type='submit' name='prodUpdate' data-id='$id'>
                                             <i class='material-icons'>create</i>
                                         </button>
                                         
-                                        <button rel='tooltip' data-original-title='Delete' class='btn-delete-prod btn btn-raised btn-sm' type='submit' name='prodDelete' data-id='$id'>
+                                        <button rel='tooltip' data-original-title='Delete' class='btn-delete-prod btn btn-danger btn-raised btn-sm' type='submit' name='prodDelete' data-id='$id'>
                                             <i class='material-icons'>delete</i>
                                         </button>
                                     </form>

@@ -35,7 +35,7 @@
                         if($user_level == 1){
                             $role = "Admin";
                         }else if($user_level == 2){
-                            $role = "Staff";
+                            $role = "Teller";
                         }else if($user_level == 3){
                             $role = "CRO";
                         }else{
@@ -51,10 +51,10 @@
                                     <td class='text-center'>
                                     
                                     <form method='POST' action='/app/controller/mdl-accView.php'>
-                                        <button data-id='$UID' rel='tooltip' data-original-title='Update' class='btn-update-user btn btn-raised btn-sm' type='submit' name='update' style='margin:10px -25px !important;'>
+                                        <button data-id='$UID' rel='tooltip' data-original-title='Update' class='btn-update-user btn-info btn btn-raised btn-sm' type='submit' name='update' style='margin:10px -25px !important;'>
                                             <i class='material-icons'>create</i>
                                         </button>
-                                        <button data-id='$UID' rel='tooltip' data-original-title='Delete' class='btn-delete-user btn btn-raised btn-sm margin-left-30' type='submit' name='deleteUser'>
+                                        <button data-id='$UID' rel='tooltip' data-original-title='Delete' class='btn-delete-user btn-danger btn btn-raised btn-sm margin-left-30' type='submit' name='deleteUser'>
                                             <i class='material-icons'>delete</i>
                                         </button>
                                     </form>

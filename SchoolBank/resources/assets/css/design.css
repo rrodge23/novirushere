@@ -151,4 +151,11 @@ table#clientTransTbl.dataTable tbody td{
     box-shadow:0 1px 4px rgba(0,0,0,.2);
 }
 /***** END BUTTON PAGINATION *************/
+.form-group .checkbox label, .form-group .radio label, .form-group label{
+    margin-left:14px;
+}
+div.dropdownjs > input.fakeinput,div.dropdownjs{
+    width:93% !important;
+    margin-left:8px;
+}
 

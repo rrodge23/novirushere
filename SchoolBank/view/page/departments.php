@@ -10,9 +10,6 @@
             
             <table style="width:100% !important;">
                 <tr style="width:100% !important;">
-                    <td style="float:left !important;">
-                        <h1 class="font-product">DEPARTMENTS</h1>
-                    </td>
                     <td style="float:right !important;">
                         <button rel="tooltip" data-original-title="Add Department" data-target="#modalDept" data-toggle="modal" class="btn btn-white btn-round btn-just-icon" style="height: 50px; width: 50px;">
                             <i class='material-icons'>add</i>
@@ -45,10 +42,10 @@
                                 <td class='text-center'>
                                 
                                 <form method='POST' action='/app/controller/mdl-deptView.php'>
-                                    <button data-id='$did' rel='tooltip' data-original-title='Update' class='btn-update-dept btn btn-raised btn-sm' type='submit' name='update' style='margin:10px -25px !important;'>
+                                    <button data-id='$did' rel='tooltip' data-original-title='Update' class='btn-update-dept btn btn-info btn-raised btn-sm' type='submit' name='update' style='margin:10px -25px !important;'>
                                         <i class='material-icons'>create</i>
                                     </button>
-                                    <button data-id='$did' rel='tooltip' data-original-title='Delete' class='btn-delete-dept btn btn-raised btn-sm margin-left-30' type='submit' name='deleteDept'>
+                                    <button data-id='$did' rel='tooltip' data-original-title='Delete' class='btn-delete-dept btn btn-danger btn-raised btn-sm margin-left-30' type='submit' name='deleteDept'>
                                         <i class='material-icons'>delete</i>
                                     </button>
                                 </form>
