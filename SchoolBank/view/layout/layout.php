@@ -34,17 +34,17 @@
                         ";
                     }
                
-                    if($_SESSION['users']['user_level'] == 2 || $_SESSION['users']['user_level'] == 1){
-                        $active  = $_SERVER['REQUEST_URI'] == '/view/page/clients.php' ? 'active' : '';
-                        echo "
-                                <li class='$active'>
-                                    <a href='/view/page/clients.php'>
-                                        <i class='material-icons'>account_box</i>
-                                        <p>Clients</p>
-                                    </a>
-                                </li>   
-                            ";
-                    }
+                    
+                    $active  = $_SERVER['REQUEST_URI'] == '/view/page/clients.php' ? 'active' : '';
+                    echo "
+                            <li class='$active'>
+                                <a href='/view/page/clients.php'>
+                                    <i class='material-icons'>account_box</i>
+                                    <p>Clients</p>
+                                </a>
+                            </li>   
+                        ";  
+                    
 
                     if($_SESSION['users']['user_level'] == 1){
                         
@@ -68,24 +68,24 @@
                             ";
                     }
 
-                    if($_SESSION['users']['user_level'] != 3){
-                        $activeTransHist = $_SERVER['REQUEST_URI'] == '/view/page/trans_hist.php' ? 'active' : '';
-        
-                        echo "
-                                <li class='$activeTransHist'>
-                                    <a href='#' data-target='.collapseone' data-toggle='collapse'> 
-                                        <i class='material-icons'>assessment</i>
-                                        <p>Reports<b class='caret float-right' style='margin-top: 13px;'></b></p>
-                                    </a>
-                                    <ul id='sidebarcollapse' class='nav collapse collapseone' aria-expanded='true' style='margin-top: 0px !important;'>
-                                        <li id='sidebarReportsCollapse' class='$activeTransHist'>
-                                        <a href='/view/page/trans_hist.php'>Transaction History</a>
-                                        </li>                   
-                                        
-                                    </ul>
-                                </li>
-                            ";
-                    }    
+
+                    $activeTransHist = $_SERVER['REQUEST_URI'] == '/view/page/trans_hist.php' ? 'active' : '';
+    
+                    echo "
+                            <li class='$activeTransHist'>
+                                <a href='#' data-target='.collapseone' data-toggle='collapse'> 
+                                    <i class='material-icons'>assessment</i>
+                                    <p>Reports<b class='caret float-right' style='margin-top: 13px;'></b></p>
+                                </a>
+                                <ul id='sidebarcollapse' class='nav collapse collapseone' aria-expanded='true' style='margin-top: 0px !important;'>
+                                    <li id='sidebarReportsCollapse' class='$activeTransHist'>
+                                    <a href='/view/page/trans_hist.php'>Transaction History</a>
+                                    </li>                   
+                                    
+                                </ul>
+                            </li>
+                        ";
+                    
                     
                     if($_SESSION['users']['user_level'] == 1){
                         $activeUser = $_SERVER['REQUEST_URI'] == '/view/page/users.php' ? 'active' : '';
@@ -98,6 +98,8 @@
                             </li>
                         ";
                     }
+
+                    
                ?>
 
             </ul>
@@ -145,5 +147,5 @@
             </div>
         </nav>
 
-        <div class="content">
-             <div class="container-fluid">
+        <div class="content col-md-12">
+             <div class="container-fluid col-md-12">

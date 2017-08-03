@@ -54,6 +54,7 @@ $(document).ready(function(){
 
         $('.datepicker').bootstrapMaterialDatePicker({
             time:false,
+            month:true,
             date:true,
             
         });
@@ -88,6 +89,7 @@ $(document).ready(function(){
                      if($('#modalAdd').hasClass('in') || $('#mdl-view-client').hasClass('in') || $('#mdl-deposit').hasClass('in') || $('#mdl-withdrawal').hasClass('in') || $('#mdl-search-accid').hasClass('in')){
 
                      }else{
+                         $('#input-accid-search').val('');
                          $('#mdl-search-accid').modal('show');
                      }  
                 }
@@ -212,8 +214,8 @@ $(document).ready(function(){
                 $('#deposit_dept').val(data.dept_name);
                 $('#deposit_prod').val(data.prod_name);
                 $('#deposit_totbal').val(data.total_amount);
-                var date = new Date(Date.now());
-                $('#deposit_date').val(date.getFullYear()+" - "+date.getMonth()+" - "+date.getDay());
+                var date_now = new Date();
+                $('#deposit_date').val(date_now.getFullYear()+" - "+date_now.getMonth()+" - "+date_now.getDay());
                 $('#deposit_teller').val(data.nickname);
              }
             });
@@ -225,7 +227,10 @@ $(document).ready(function(){
        /******************* DEPOSIT *********************/
       
         $('#post-deposit-form').on('submit',function(e){
-            
+            if($('#deposit_amount').val() < 1){
+                swal("Error !", "Amount should be greater than 0", "error");
+                return false;
+            }
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');   
@@ -236,7 +241,7 @@ $(document).ready(function(){
                 type: "info",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Update",
+                confirmButtonText: "Post",
                 cancelButtonText: "Cancel",
                 closeOnConfirm: false,
                 closeOnCancel: false,
@@ -249,7 +254,7 @@ $(document).ready(function(){
                     if($('#deposit_amount').val() >= 500){
                         swal({
                             title: "Maximum Amount Exceed !",
-                            text: "Enter Admin Password",
+                            text: "Enter Approval Password",
                             type: "input",
                             inputType: "password",
                             showCancelButton: true,
@@ -362,7 +367,7 @@ $(document).ready(function(){
        /******************* END WITHDRAWAL VIEW *********************/
 
        /******************* WITHDRAWAL *********************/
-            $('#mdl-btn-post-trans-withdrawal').on('submit',function(){
+            $('#post-withdrawal-form').on('submit',function(){
            
             var btn = $(this);
             var frm = btn.closest('form');
@@ -411,7 +416,7 @@ $(document).ready(function(){
                                             $.ajax({
                                                 url:url,
                                                 type:type,
-                                                data:frm.serialize()+"&mode=transPostWithdrawal",
+                                                data:frm.serialize(),
                                                 dataType:"json",
                                                 success:function(data){
                                                     
@@ -622,62 +627,27 @@ $(document).ready(function(){
                 },
                 function(isConfirm) {
                 if (isConfirm) {
-                    swal({
-                    title: "Confirmation !",
-                    text: "Enter Admin Password",
-                    type: "input",
-                    inputType: "password",
-                    showCancelButton: true,
-                    closeOnConfirm: false,
-                    inputPlaceholder: "Enter Password"
-                    }, function (inputValue) {
-                        
-                        $.ajax({
-                            type:"POST",
-                            url:"/app/controller/auth/permission.php",
-                            dataType:"json",
-                            success:function(session){
-                                
-                                if (inputValue === false) return false;
-                                if (inputValue === "") {
-                                    swal.showInputError("Fill Out Field");
-                                    return false
-                                }
-                               
-                                if (inputValue == session.cro || inputValue == session.cashier) {
-                                    var frm = btn.closest('form');
-                                    var url = frm.attr('action');   
-                                    var type = frm.attr('method');
-                                    $.ajax({
-                                        url:"/app/controller/mdl-clientView.php",
-                                        type:type,
-                                        data:frm.serialize(),
-                                        dataType:"json",
-                                        success:function(data){
-                                            if(data['validation'] == true){
-                                                    swal({ html:true, title: "Activated", text: "Client ID: "+data["client_id"]+"<br><p class='float:left;'>Account ID: "+data["acc_no"]+"</p>", type: "success"},
-                                                        function(){ 
-                                                            location.reload();
-                                                        }   
-                                                    );
-                                            }else{
-                                                swal("Error !", "there was an error in Activating Account please Check The Details and try again.", "error");
-                                            }
-                                        }
-                                    });
-                                    
-                                }else
-                                {
-                                    swal.showInputError("Incorrect Password");
-                                    return false
-                                }
+                    var frm = btn.closest('form');
+                    var url = frm.attr('action');   
+                    var type = frm.attr('method');
+                    $.ajax({
+                        url:"/app/controller/mdl-clientView.php",
+                        type:type,
+                        data:frm.serialize(),
+                        dataType:"json",
+                        success:function(data){
+                            if(data['validation'] == true){
+                                    swal({ html:true, title: "Activated", text: "Client ID: "+data["client_id"]+"<br><p class='float:left;'>Account ID: "+data["acc_no"]+"</p>", type: "success"},
+                                        function(){ 
+                                            location.reload();
+                                        }   
+                                    );
+                            }else{
+                                swal("Error !", "there was an error in Activating Account please Check The Details and try again.", "error");
                             }
-                        });
-
-                        
+                        }
                     });
-
-                    
+                   
                     
                 } else {
                     swal("Cancelled", "Account Activation Cancelled !", "error");
@@ -714,7 +684,7 @@ $(document).ready(function(){
                             data.trans[key]['ID'],
                             transtype,
                             data.trans[key]['trans_date'],
-                            data.trans[key]['trans_type'] == 1 ? "+ "+data.trans[key]['amount'] : "- "+data.trans[key]['amount'],
+                            data.trans[key]['trans_type'] == 1 ? " "+data.trans[key]['amount'] : "- "+data.trans[key]['amount'],
                             data.trans[key]['teller'],
                             data.trans[key]['total_amount']
                         ]).draw(false);
@@ -767,49 +737,28 @@ $(document).ready(function(){
                         url:"/app/controller/auth/session.php",
                         dataType:"json",
                         success:function(session){
-                            swal({
-                            title: "Confirmation !",
-                            text: "Enter Admin Password",
-                            type: "input",
-                            inputType: "password",
-                            showCancelButton: true,
-                            closeOnConfirm: false,
-                            inputPlaceholder: "Enter Password"
-                            }, function (inputValue) {
-                                if (inputValue === false) return false;
-                                if (inputValue === "") {
-                                    swal.showInputError("Fill Out Field");
-                                    return false
-                                }
-                                if (inputValue != session.password) {
-                                    swal.showInputError("Incorrect Password");
-                                    return false
-                                }else
-                                {
-                                    var frm = $('#update-client-form');
-                                    var url = "/app/controller/mdl-clientView.php";   
-                                    var type = frm.attr('method');
-                                    $.ajax({
-                                    url:url,
-                                    type:type,
-                                    data:frm.serialize(),
-                                    dataType:"json",
-                                    success:function(data){
-                                    
-                                        swal({title: "Success", text: "Successfully Updated !", type: "success"},
-                                            function(){ 
-                                                location.reload();
-                                            }
-                                        );
-                    
-                                        if(data == true){
-
-                                        }else{
-                                            swal("Cancelled !", "there is an error in Updating Profile", "error");
-                                        }
+                            var frm = $('#update-client-form');
+                            var url = "/app/controller/mdl-clientView.php";   
+                            var type = frm.attr('method');
+                            $.ajax({
+                            url:url,
+                            type:type,
+                            data:frm.serialize(),
+                            dataType:"json",
+                            success:function(data){
+                            
+                                swal({title: "Success", text: "Successfully Updated !", type: "success"},
+                                    function(){ 
+                                        location.reload();
                                     }
-                                    });
+                                );
+            
+                                if(data == true){
+
+                                }else{
+                                    swal("Cancelled !", "there is an error in Updating Profile", "error");
                                 }
+                            }
                             });
                         }
                     });
@@ -882,17 +831,15 @@ $(document).ready(function(){
                                     data:{del_id:id,mode:"deleteClient"},
                                     dataType:"json",
                                     success:function(data){
-                                    
-                                        swal({title: "Success", text: "Successfully Deleted !", type: "success"},
-                                            function(){ 
-                                                location.reload();
-                                            }
-                                        );
-
-                                    
-                                    if(data == true){
+                         
+                                        if(data == true){
+                                            swal({title: "Success", text: "Successfully Deleted !", type: "success"},
+                                                function(){ 
+                                                    location.reload();
+                                                }
+                                            );
                                         }else{
-                                            swal("Cancelled !", "there is an error in Deleting Profile", "error");
+                                            swal("Cancelled !", "there is an error in Deleting Client", "error");
                                         }
                                     }
                                     });
