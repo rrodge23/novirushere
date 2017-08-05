@@ -9,7 +9,7 @@
         
         public function checkLogin($data=NULL){
             
-            if(!empty($data['username']) && !empty($data['password'])){
+            if(isset($data['username']) && isset($data['password'])){
                 $dbCro = new modelUser();
                 $croAuth = $dbCro->authCro();
                 $dbCashier = new modelUser();
@@ -38,16 +38,28 @@
                         }
                 
                     }else{
-                    $this->message = "Error L";
+                    $this->message = "Error";
                     }
                 }else{
-                    $this->message = "Error Login Details";
+                    $this->message = "Error";
                 }
             }
         }
         
     }
-
-    $tmp = new loginCtrl();
-    $tmp->checkLogin($_POST);
+    $loginMessage = "";
+    if(isset($_POST['username']) && isset($_POST['password'])){
+        $tmp = new loginCtrl();
+        $tmp->checkLogin($_POST);
+        
+        if($tmp->message == "Error")
+        {
+            $loginMessage = "<i class='material-icons'>warning</i><p>Invalid Login Details</p>";
+        }else
+        {
+            $loginMessage = "";
+        }
+    }
+    
+    
 ?>

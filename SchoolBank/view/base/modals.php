@@ -1281,24 +1281,22 @@
                     </div>
                     <div class="row" style="">
                         <div class="col-md-12">
-                            <div class="col-md-6 box-shadow-panel" style="background-color:white;">
-                                <div class='form-group' style="">
-                                    <label for='withdrawal_totbal' class='control-label col-md-4'>Total Balance</label>
-                                    <div class='col-md-8'>
-                                        <input readonly='readonly' type='text' class='modal-width form-control padding-left10 ' id='withdrawal_totbal' name='withdrawal_totbal'>
-                                        <span class='help-block'></code></span>
-                                    </div>
+                            <div class='form-group' style="">
+                                <label for='withdrawal_totbal' class='control-label col-md-4'>Total Balance</label>
+                                <div class='col-md-8'>
+                                    <input readonly='readonly' type='text' class='modal-width form-control padding-left10 ' id='withdrawal_totbal' name='withdrawal_totbal'>
+                                    <span class='help-block'></code></span>
                                 </div>
                             </div>
-                            <div class="col-md-6 box-shadow-panel" style="background-color:white;">  
-                                <div class='form-group' style="">
-                                    <label for='deposit_amount' class='control-label col-md-1'><i class='material-icons'>attach_money</i></label>
-                                    <div class='col-md-11'>
-                                        <input tabindex="1" type='text' class='modal-width form-control padding-left10 ' id='withdrawal_amount' name='withdrawal_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus" style="padding-top:8px;">
-                                        <span class='help-block'><code>numbers between 0-9. should not lesser than 1</code></span>
-                                    </div>
-                                </div>                     
-                            </div>
+                        
+                        
+                            <div class='form-group' style="">
+                                <label for='deposit_amount' class='control-label col-md-1'><i class='material-icons'>attach_money</i></label>
+                                <div class='col-md-11'>
+                                    <input tabindex="1" type='text' class='modal-width form-control padding-left10 ' id='withdrawal_amount' name='withdrawal_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus" style="padding-top:8px;">
+                                    <span class='help-block'><code>numbers between 0-9. should not lesser than 1</code></span>
+                                </div>
+                            </div>                     
                         </div>
                     </div>
                     

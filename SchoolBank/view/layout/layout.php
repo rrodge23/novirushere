@@ -107,7 +107,7 @@
     </div>
 
     <div class="main-panel" style="background-color:#F8F8F9;">
-        <nav class="box-shadow navbar navbar-transparent navbar-absolute" style="background-color: #009587;">
+        <nav class="box-shadow navbar navbar-transparent navbar-absolute" style="background-color: #F88158;">
             <div class="container-fluid" style="height:50px !important;">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">

@@ -28,7 +28,7 @@
                     </div>
                     <div class="ui fluid large teal submit button">Login</div>
                 </div>
-
+                <div class="ErrorMessage"><?=$loginMessage;?></div>
                 <div class="ui error message"></div>
 
                 </form>
