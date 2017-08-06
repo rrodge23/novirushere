@@ -13,7 +13,7 @@
                     if($_SESSION['users']['user_level'] == 1)
                         $usrLvl = "Admin";
                     else if($_SESSION['users']['user_level'] == 2)
-                        $usrLvl = "Staff";
+                        $usrLvl = "Teller";
                     else if($_SESSION['users']['user_level'] == 3)
                         $usrLvl = "CRO";
                     else $usrLvl = "Cashier/BM";

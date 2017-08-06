@@ -140,10 +140,10 @@ $(document).ready(function(){
        $('#btn-changepass').on('click',function(){
            var btn = $(this);
            if($('#oldpass').val() == "" || $('#newpass').val() == "" || $('#renewpass').val() == ""){
-               swal("error", "Fill out Fields", "error");
+               swal("error", "Please Fill out Fields", "error");
                return false;
            }else if($('#newpass').val() != $('#renewpass').val()){
-                swal("error", "password not matched !", "error");
+                swal("error", "password not match confirm password !", "error");
                 return false;
            }
             $.ajax({
@@ -174,10 +174,10 @@ $(document).ready(function(){
 
                                         }
                                     });
-                                    swal({title: "Success", text: "Success !", type: "success"});
+                                    swal({title: "Success", text: "Password has been changed successfully !", type: "success"});
                                     window.location.href = "/view/page/home.php";  
                                 }else{
-                                    swal("Cancelled !", "there is an error", "error");
+                                    swal("Cancelled !", "Error in Changing Password", "error");
                                 }
                             }
                     });
@@ -214,8 +214,9 @@ $(document).ready(function(){
                 $('#deposit_dept').val(data.dept_name);
                 $('#deposit_prod').val(data.prod_name);
                 $('#deposit_totbal').val(data.total_amount);
-                var date_now = new Date();
-                $('#deposit_date').val(date_now.getFullYear()+" - "+date_now.getMonth()+" - "+date_now.getDay());
+                var date_now = new Date(Date.now());
+                $('#deposit_date').val(date_now.getFullYear()+"-"+date_now.getMonth()+"-"+date_now.getDay());
+                $('#deposit_amount').val("");
                 $('#deposit_teller').val(data.nickname);
              }
             });
@@ -270,7 +271,7 @@ $(document).ready(function(){
                                         
                                         if (inputValue === false) return false;
                                         if (inputValue === "") {
-                                            swal.showInputError("Fill Out Field");
+                                            swal.showInputError("Please Fill Out Field");
                                             return false
                                         }
                                     
@@ -283,13 +284,13 @@ $(document).ready(function(){
                                             success:function(data){
                                                 
                                                 if(data == true){
-                                                    swal({title: "Success", text: "Success !", type: "success"},
+                                                    swal({title: "Success", text: "Transaction Completed !", type: "success"},
                                                         function(){ 
                                                             location.reload();
                                                         }
                                                     );
                                                 }else{
-                                                    swal("Cancelled !", "there is an error", "error");
+                                                    swal("Cancelled !", "Transaction Error", "error");
                                                 }
                                             }
                                             });
@@ -310,13 +311,13 @@ $(document).ready(function(){
                         success:function(data){
                             
                             if(data == true){
-                                swal({title: "Success", text: "Success !", type: "success"},
+                                swal({title: "Success", text: "Transaction Completed !", type: "success"},
                                     function(){ 
                                         location.reload();
                                     }
                                 );
                             }else{
-                                swal("Cancelled !", "there is an error", "error");
+                                swal("Cancelled !", "Transaction Error", "error");
                             }
                         }
                         });
@@ -356,7 +357,7 @@ $(document).ready(function(){
                 $('#withdrawal_totbal').val(data.total_amount);
                 var date = new Date(Date.now());
                 $('#withdrawal_date').val(date.getFullYear()+" - "+date.getMonth()+" - "+date.getDay());
-                
+                $('#withdrawal_amount').val("");
                 $('#withdrawal_teller').val(data.nickname);
                 }
             });
@@ -368,7 +369,10 @@ $(document).ready(function(){
 
        /******************* WITHDRAWAL *********************/
             $('#post-withdrawal-form').on('submit',function(){
-           
+            if($('#withdrawal_amount').val() < 1){
+                swal({title: "Error", text: "Transaction Amount should be greater than 0", type: "error"});
+                return false;
+            }
             var btn = $(this);
             var frm = btn.closest('form');
             var url = frm.attr('action');   
@@ -379,7 +383,7 @@ $(document).ready(function(){
                 type: "info",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Update",
+                confirmButtonText: "Post",
                 cancelButtonText: "Cancel",
                 closeOnConfirm: false,
                 closeOnCancel: false,
@@ -392,7 +396,7 @@ $(document).ready(function(){
                     if($('#withdrawal_amount').val() >= 500){
                         swal({
                             title: "Maximum Amount Exceed !",
-                            text: "Enter Admin Password",
+                            text: "Enter Approval Password",
                             type: "input",
                             inputType: "password",
                             showCancelButton: true,
@@ -421,13 +425,13 @@ $(document).ready(function(){
                                                 success:function(data){
                                                     
                                                     if(data == true){
-                                                        swal({title: "Success", text: "Success !", type: "success"},
+                                                        swal({title: "Success", text: "Transaction Compelted !", type: "success"},
                                                             function(){ 
                                                                 location.reload();
                                                             }
                                                         );
                                                     }else{
-                                                        swal("Cancelled !", "there is an error", "error");
+                                                        swal("Cancelled !", "Transaction error", "error");
                                                     }
                                                 }
                                             });
@@ -448,13 +452,13 @@ $(document).ready(function(){
                             success:function(data){
                                 
                                 if(data == true){
-                                    swal({title: "Success", text: "Success !", type: "success"},
+                                    swal({title: "Success", text: "Transaction Completed !", type: "success"},
                                         function(){ 
                                             location.reload();
                                         }
                                     );
                                 }else{
-                                    swal("Cancelled !", "there is an error", "error");
+                                    swal("Cancelled !", "Transaction error", "error");
                                 }
                             }
                         });
@@ -481,7 +485,7 @@ $(document).ready(function(){
                    
                     swal({
                         title: "Confirm Delete.",
-                        text: "You want to Delete this?",
+                        text: "You want to Delete this Transaction ?",
                         type: "info",
                         showCancelButton: true,
                         confirmButtonClass: "btn-danger",
@@ -525,7 +529,7 @@ $(document).ready(function(){
                                     dataType:"json",
                                     success:function(data){
                                     
-                                        swal({title: "Success", text: "Successfully Deleted !", type: "success"},
+                                        swal({title: "Success", text: "Transaction Successfully Deleted !", type: "success"},
                                             function(){ 
                                                 location.reload();
                                             }
@@ -533,7 +537,7 @@ $(document).ready(function(){
 
                                     if(data == true){
                                         }else{
-                                            swal("Cancelled !", "there is an error in Deleting", "error");
+                                            swal("Cancelled !", "there is an error in Deleting this Transaction", "error");
                                         }
                                     }
                                     });
@@ -542,7 +546,7 @@ $(document).ready(function(){
                             });
                         
                         } else {
-                            swal("Cancelled", "Delete Cancelled !", "error");
+                            swal("Cancelled", "Transaction Deletion Cancelled !", "error");
                         }
                     });
                 }
@@ -674,20 +678,22 @@ $(document).ready(function(){
                 dataType:"json",
                 success:function(data){
                     for(var key in data.trans){
-                        var transtype;
-                        if(data.trans[key]['trans_type'] == 1){
-                            transtype = "Deposit";
-                        }else{
-                            transtype = "Withdrawal";
+                        if(data.trans[key]['amount'] != 0){
+                            var transtype;
+                            if(data.trans[key]['trans_type'] == 1){
+                                transtype = "Deposit";
+                            }else{
+                                transtype = "Withdrawal";
+                            }
+                            table.row.add([
+                                data.trans[key]['ID'],
+                                transtype,
+                                data.trans[key]['trans_date'],
+                                data.trans[key]['trans_type'] == 1 ? " "+data.trans[key]['amount'] : "- "+data.trans[key]['amount'],
+                                data.trans[key]['teller'],
+                                data.trans[key]['total_amount']
+                            ]).draw(false);
                         }
-                        table.row.add([
-                            data.trans[key]['ID'],
-                            transtype,
-                            data.trans[key]['trans_date'],
-                            data.trans[key]['trans_type'] == 1 ? " "+data.trans[key]['amount'] : "- "+data.trans[key]['amount'],
-                            data.trans[key]['teller'],
-                            data.trans[key]['total_amount']
-                        ]).draw(false);
                         
                     }
                         
@@ -720,7 +726,7 @@ $(document).ready(function(){
             
             swal({
                 title: "Are you sure?",
-                text: "You want to update this profile ?",
+                text: "do you want to update this profile ?",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
@@ -873,7 +879,7 @@ $(document).ready(function(){
             var type = frm.attr('method');
             swal({
                 title: "Are you sure?",
-                text: "You want to Add this Product ?",
+                text: "do you want to Add this Product ?",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
@@ -1605,5 +1611,11 @@ $(document).ready(function(){
               ]
             }
           }
+        });
+
+        /*AUTO SUGGEST AMOUNT TRANSACTION WITHDRAWALS/DEPOSITS*/
+        $('.btn-autoAmount').on('click',function(){
+            $('#withdrawal_amount').val($(this).text());
+            $('#deposit_amount').val($(this).text());
         });
 });

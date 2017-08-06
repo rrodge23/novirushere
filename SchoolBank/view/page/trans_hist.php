@@ -46,30 +46,33 @@
                                         $amount = $r['amount'];
                                         $total_amount = $r['total_amount'];
                                         $teller = $r['teller'];
-                                        echo "
-                                            <tr>  
-                                                <td class='text-center checked'>$id</td>
-                                                <td class='text-center'>$ACID</td>
-                                                <td class='text-center'>$trans_date</td>
-                                                <td class='text-center'>$amount</td>
-                                                <td class='text-center'>$total_amount</td>
-                                                <td class='text-center'>$teller</td>
-                                                
+                                        if($amount != 0){
                                             
-                                        ";
-
-                                        if($_SESSION['users']['user_level'] == 1){
                                             echo "
-                                                <td class='text-center'>
-                                                    <form method='POST' action='/app/controller/mdl-transCtrl.php'>
-                                                        <button data-id='$id' rel='tooltip' data-original-title='Delete' class='btn-delete-trans btn btn-raised btn-sm margin-left-30' type='submit' name='deleteTrans'>
-                                                            <i class='material-icons'>delete</i>
-                                                        </button>
-                                                    </form>
-                                                </td>
+                                                <tr>  
+                                                    <td class='text-center checked'>$id</td>
+                                                    <td class='text-center'>$ACID</td>
+                                                    <td class='text-center'>$trans_date</td>
+                                                    <td class='text-center'>$amount</td>
+                                                    <td class='text-center'>$total_amount</td>
+                                                    <td class='text-center'>$teller</td>
+                                                    
+                                                
                                             ";
+
+                                            if($_SESSION['users']['user_level'] == 1){
+                                                echo "
+                                                    <td class='text-center'>
+                                                        <form method='POST' action='/app/controller/mdl-transCtrl.php'>
+                                                            <button data-id='$id' rel='tooltip' data-original-title='Delete' class='btn-delete-trans btn btn-raised btn-sm margin-left-30' type='submit' name='deleteTrans'>
+                                                                <i class='material-icons'>delete</i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                ";
+                                            }
+                                            echo "</tr>";
                                         }
-                                        echo "</tr>";
                                     }
                                 }
                                 

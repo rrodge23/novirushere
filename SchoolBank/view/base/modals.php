@@ -77,7 +77,8 @@
                                     <div class="form-group" style="margin-left:4.5%;padding:0 !important;width:92%;">
                                         <label for="cityAddC">City/Province</label>
                                         <select id="cityAddC" class="form-control select" name="city">
-                                            
+                                            <option value="Davao City">Davao City</option>
+                                            <option value="Surigao City">Surigao City</option>
                                             <option value="Caloocan">Caloocan</option>
                                             <option value="Las Piñas">Las Piñas</option>
                                             <option value="Makati ">Makati </option>
@@ -136,7 +137,7 @@
                                             <option value="Panabo">Panabo</option>
                                             <option value="Samal">Samal</option>
                                             <option value="Tagum">Tagum</option>
-                                            <option value="Davao City">Davao City</option>
+                                            
                                             <option value="Digos">Digos</option>
                                             <option value="Mati">Mati</option>
                                             <option value="Borongan">Borongan</option>
@@ -213,7 +214,7 @@
                                             <option value="Koronadal">Koronadal</option>
                                             <option value="Maasin">Maasin</option>
                                             <option value="Tacurong">Tacurong</option>
-                                            <option value="Surigao City">Surigao City</option>
+                                            
                                             <option value="Bislig">Bislig</option>
                                             <option value="Tandag">Tandag</option>
                                             <option value="Tarlac City">Tarlac City</option>
@@ -438,6 +439,8 @@
                                     <label for='city' class='control-label col-md-4'>City/Province</label>
                                     <div class='col-md-8'>
                                         <select disabled="disabled" id="city" class="form-control select mdl-user-input-update" name="city">
+                                            <option value="Davao City">Davao City</option>
+                                            <option value="Surigao City">Surigao City</option>
                                             <option value="Caloocan">Caloocan</option>
                                             <option value="Las Piñas">Las Piñas</option>
                                             <option value="Makati ">Makati </option>
@@ -496,7 +499,6 @@
                                             <option value="Panabo">Panabo</option>
                                             <option value="Samal">Samal</option>
                                             <option value="Tagum">Tagum</option>
-                                            <option value="Davao City">Davao City</option>
                                             <option value="Digos">Digos</option>
                                             <option value="Mati">Mati</option>
                                             <option value="Borongan">Borongan</option>
@@ -573,7 +575,6 @@
                                             <option value="Koronadal">Koronadal</option>
                                             <option value="Maasin">Maasin</option>
                                             <option value="Tacurong">Tacurong</option>
-                                            <option value="Surigao City">Surigao City</option>
                                             <option value="Bislig">Bislig</option>
                                             <option value="Tandag">Tandag</option>
                                             <option value="Tarlac City">Tarlac City</option>
@@ -1020,7 +1021,7 @@
             
             <div class="modal-content" style="width: 140% !important;">
 
-                <div class="modal-header" style="background-color: #009785 !important;line-height:75px !important;height:75px !important;">
+                <div class="modal-header" style="background-color: #F88158 !important;line-height:75px !important;height:75px !important;">
                    
                     <h4 class="modal-title float-left color-white font-product">USER INFO</h4>
                 </div>
@@ -1101,7 +1102,7 @@
 
         <div class="modal-content" style="background-color:#EEEEEE;">
 
-            <div class="modal-header" style="background-color: #009785 !important;line-height:75px !important;height:75px !important;">
+            <div class="modal-header" style="background-color: #F88158 !important;line-height:75px !important;height:75px !important;">
                 
                 <h4 class="modal-title float-left color-white font-product">DEPOSIT</h4>
             </div>
@@ -1113,82 +1114,92 @@
                     <input type="hidden" name="status" id="mdl_deposit_status">
                     <input type="hidden" name="AID" id="mdl_deposit_AID">
                     <input id="deposit_teller" type="hidden" name="deposit_teller">
-                    <div class="col-md-12 box-shadow-panel" style="background-color:white;margin-top:50px;margin-bottom:50px;padding-bottom:50px;">
-                        <div class="row" style="margin-top:50px;">
-                            <div class="col-md-6 form-group">
-                                <div class='form-group'>
-                                    <label for='ACCID' class='control-label col-md-4'>Account ID</label>
-                                    <div class='col-md-5'>
-                                        <input readonly='readonly' type='text' class='padding-left10 form-control' id='ACCID' name='ACCID'>
-                                        <span class='help-block'></code></span>
+                    <div class="row" style="margin-top:50px;">
+                        <div class="col-md-12" style="">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 style="color:white;">Client Info</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class='form-group'>
+                                            <label for='ACCID' class='control-label col-md-4'>Account ID</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='padding-left10 form-control padding-left10' id='ACCID' name='ACCID' style="width:40% !important;">
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group' style="margin:0 !important;">
+                                            <label for='deposit_name' class='control-label col-md-4'>Name</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='padding-left10 modal-width form-control padding-left10' id='deposit_name' name='deposit_name'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group' style="margin:0 !important;">
+                                            <label for='deposit_dept' class='control-label col-md-4'>Department</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='padding-left10 modal-width form-control padding-left10 ' id='deposit_dept' name='deposit_dept'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label for='deposit_prod' class='control-label col-md-4'>Product</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='modal-width form-control padding-left10 ' id='deposit_prod' name='deposit_prod' required='required'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card col-md-12" style="margin-top:0px;">
+                                    <div class='form-group'>
+                                        <label for='deposit_totbal' class='control-label col-md-4'>Total Balance</label>
+                                        <div class='col-md-8'>
+                                            <input readonly='readonly' type='text' class='text-center modal-width form-control padding-left10 ' id='deposit_totbal' name='deposit_totbal'>
+                                            <span class='help-block'></code></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="btn-group btn-group-justified btn-group-raised">
+                                            <a href="#" class="btn btn-autoAmount">50</a>
+                                            <a href="#" class="btn btn-autoAmount">100</a>
+                                            <a href="#" class="btn btn-autoAmount">150</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified btn-group-raised">
+                                            <a href="#" class="btn btn-autoAmount">200</a>
+                                            <a href="#" class="btn btn-autoAmount">300</a>
+                                            <a href="#" class="btn btn-autoAmount">400</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" style="margin-top:0px;padding-bottom:20px;">
+                                    <div class="card-content">
+                                        <div class='form-group'>
+                                            <label for='deposit_date' class='control-label col-md-4'>Date Generated</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='modal-width form-control padding-left10' id='deposit_date' name='deposit_date'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label for='deposit_amounts' class='control-label col-md-4'>Transaction Amount</label>
+                                            <div class='col-md-8'>
+                                                <input tabindex="1" type='text' class='form-control padding-left10' id='deposit_amount' name='deposit_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus">
+                                                <span class='help-block'></code>numbers between 0-9. should not lesser than 1</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">   
-                            <div class='col-md-6 form-group'>
-                                <label for='deposit_name' class='control-label col-md-4'>Name</label>
-                                <div class='col-md-5'>
-                                    <input readonly='readonly' type='text' class='padding-left10 modal-width  form-control padding-left10 ' id='deposit_name' name='deposit_name'>
-                                    <span class='help-block'></code></span>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class='form-group'>
-                                    <label for='deposit_dept' class='control-label col-md-4'>Department</label>
-                                    <div class='col-md-5'>
-                                        <input readonly='readonly' type='text' class='padding-left10 modal-width form-control padding-left10 ' id='deposit_dept' name='deposit_dept'>
-                                        <span class='help-block'></code></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class='form-group'>
-                                    <label for='deposit_prod' class='control-label col-md-4'>Product</label>
-                                    <div class='col-md-5'>
-                                        <input readonly='readonly' type='text' class='modal-width  form-control padding-left10 ' id='deposit_prod' name='deposit_prod' required='required'>
-                                        <span class='help-block'></code></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class='form-group'>
-                                    <label for='deposit_date' class='control-label col-md-1'><i class="material-icons">date_range</i></label>
-                                    <div class='col-md-11'>
-                                        <input readonly='readonly' type='text' class='modal-width  form-control padding-left10 ' id='deposit_date' name='deposit_date' required='required'>
-                                        <span class='help-block'>Date Generated</code></span>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class='form-group'>
-                                    <label for='deposit_totbal' class='control-label col-md-4'>Total Balance</label>
-                                    <div class='col-md-6'>
-                                        <input readonly='readonly' type='text' class='modal-width  form-control padding-left10 ' id='deposit_totbal' name='deposit_totbal'>
-                                        <span class='help-block'></code></span>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="col-md-6">
-                                <div class='form-group' style="">
-                                    <label for='deposit_amount' class='control-label col-md-1'><i class='material-icons'>attach_money</i></label>
-                                    <div class='col-md-11'>
-                                        <input tabindex="1" type='text' class='modal-width form-control padding-left10 ' id='deposit_amount' name='deposit_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus">
-                                        <span class='help-block'><code>numbers between 0-9.</code></span>
-                                    </div>
-                                </div>   
-                            </div>
-                        </div>
-                   </div>
+                    </div>
+                  
                         <div class="modal-footer">
                             <table style="float:right !important;">
                                 <tr>
@@ -1218,7 +1229,7 @@
 
         <div class="modal-content" style="background-color:#EEEEEE;">
 
-            <div class="modal-header" style="background-color: #009785 !important;line-height:75px !important;height:75px !important;">
+            <div class="modal-header" style="background-color: #F88158 !important;line-height:75px !important;height:75px !important;">
                 
                 <h4 class="modal-title float-left color-white font-product">WITHDRAWAL</h4>
             </div>
@@ -1229,77 +1240,92 @@
                     <input type="hidden" name="mode" value="transPostWithdrawal">
                     <input type="hidden" id="withdrawal_teller" name="withdrawal_teller">
                     <div class="row" style="margin-top:50px;">
-                        <div class="col-md-12 box-shadow-panel" style="background-color:white;">
+                        <div class="col-md-12" style="">
                             <div class="col-md-6">
-                                <div class="row">
-                                    <div class='form-group' style="margin:0 !important;height:80%;">
-                                        <label for='accIdWithdrawal' class='control-label col-md-4'>Account ID</label>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 style="color:white;">Client Info</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class='form-group'>
+                                            <label for='accIdWithdrawal' class='control-label col-md-4'>Account ID</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='padding-left10 form-control padding-left10' id='accIdWithdrawal' name='accIdWithdrawal' style="width:40% !important;">
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group' style="margin:0 !important;">
+                                            <label for='withdrawal_name' class='control-label col-md-4'>Name</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='padding-left10 modal-width form-control padding-left10' id='withdrawal_name' name='withdrawal_name'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group' style="margin:0 !important;">
+                                            <label for='withdrawal_dept' class='control-label col-md-4'>Department</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='padding-left10 modal-width form-control padding-left10 ' id='withdrawal_dept' name='withdrawal_dept'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label for='withdrawal_prod' class='control-label col-md-4'>Product</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='modal-width form-control padding-left10 ' id='withdrawal_prod' name='withdrawal_prod' required='required'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card col-md-12" style="margin-top:0px;">
+                                    <div class='form-group'>
+                                        <label for='withdrawal_totbal' class='control-label col-md-4'>Total Balance</label>
                                         <div class='col-md-8'>
-                                            <input readonly='readonly' type='text' class='padding-left10 form-control padding-left10' id='accIdWithdrawal' name='accIdWithdrawal' style="width:40% !important;">
+                                            <input readonly='readonly' type='text' class='text-center modal-width form-control padding-left10 ' id='withdrawal_totbal' name='withdrawal_totbal'>
                                             <span class='help-block'></code></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class='form-group' style="margin:0 !important;">
-                                        <label for='withdrawal_name' class='control-label col-md-4'>Name</label>
-                                        <div class='col-md-8'>
-                                            <input readonly='readonly' type='text' class='padding-left10 modal-width form-control padding-left10' id='withdrawal_name' name='withdrawal_name'>
-                                            <span class='help-block'></code></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class='form-group' style="margin:0 !important;">
-                                        <label for='withdrawal_dept' class='control-label col-md-4'>Department</label>
-                                        <div class='col-md-8'>
-                                            <input readonly='readonly' type='text' class='padding-left10 modal-width form-control padding-left10 ' id='withdrawal_dept' name='withdrawal_dept'>
-                                            <span class='help-block'></code></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class='form-group' style="margin:0 !important;height:100%;">
-                                        <label for='withdrawal_prod' class='control-label col-md-4'>Product</label>
-                                        <div class='col-md-8'>
-                                            <input readonly='readonly' type='text' class='modal-width form-control padding-left10 ' id='withdrawal_prod' name='withdrawal_prod' required='required'>
-                                            <span class='help-block'></code></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
                             </div>
+                           
                             <div class="col-md-6">
-                                <div class="row">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class='material-icons'>date_range</i></span>
-                                        <input readonly="readonly" style="width:21%;" id="withdrawal_date" type="text" class="form-control padding-left10" name="withdrawal_date">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="btn-group btn-group-justified btn-group-raised">
+                                            <a href="#" class="btn btn-autoAmount">50</a>
+                                            <a href="#" class="btn btn-autoAmount">100</a>
+                                            <a href="#" class="btn btn-autoAmount">150</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified btn-group-raised">
+                                            <a href="#" class="btn btn-autoAmount">200</a>
+                                            <a href="#" class="btn btn-autoAmount">300</a>
+                                            <a href="#" class="btn btn-autoAmount">400</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" style="margin-top:0px;padding-bottom:20px;">
+                                    <div class="card-content">
+                                        <div class='form-group'>
+                                            <label for='withdrawal_date' class='control-label col-md-4'>Date Generated</label>
+                                            <div class='col-md-8'>
+                                                <input readonly='readonly' type='text' class='modal-width form-control padding-left10' id='withdrawal_date' name='withdrawal_date'>
+                                                <span class='help-block'></code></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label for='withdrawal_amounts' class='control-label col-md-4'>Transaction Amount</label>
+                                            <div class='col-md-8'>
+                                                <input tabindex="1" type='text' class='form-control padding-left10' id='withdrawal_amount' name='withdrawal_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus">
+                                                <span class='help-block'></code>numbers between 0-9. should not lesser than 1</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="">
-                        <div class="col-md-12">
-                            <div class='form-group' style="">
-                                <label for='withdrawal_totbal' class='control-label col-md-4'>Total Balance</label>
-                                <div class='col-md-8'>
-                                    <input readonly='readonly' type='text' class='modal-width form-control padding-left10 ' id='withdrawal_totbal' name='withdrawal_totbal'>
-                                    <span class='help-block'></code></span>
-                                </div>
-                            </div>
-                        
-                        
-                            <div class='form-group' style="">
-                                <label for='deposit_amount' class='control-label col-md-1'><i class='material-icons'>attach_money</i></label>
-                                <div class='col-md-11'>
-                                    <input tabindex="1" type='text' class='modal-width form-control padding-left10 ' id='withdrawal_amount' name='withdrawal_amount' placeholder="Enter Amount" pattern="[.0-9]{1,100}" required="required" autofocus="autofocus" style="padding-top:8px;">
-                                    <span class='help-block'><code>numbers between 0-9. should not lesser than 1</code></span>
-                                </div>
-                            </div>                     
-                        </div>
-                    </div>
-                    
+                   
+                              
                         <div class="modal-footer">
                             
                             <table style="float:right !important;">
@@ -1433,7 +1459,7 @@
                             <div class="form-group" style="float:right;">
                                 <label for="i5ps" class="control-label col-md-5" style="font-size:16px;"><b>Total Amount<b></label>
                                 <div class="col-md-6" style="padding-right:15px;">
-                                    <input style="padding-left:10px;color:#009785;" readonly="readonly" type="text" class="form-control font-product" id="totbalnce" name="ACID">
+                                    <input style="padding-left:10px;color:#009785;" readonly="readonly" type="text" class="form-control font-product text-center" id="totbalnce" name="ACID">
                                     <span class="help-block"></code></span>
                                 </div>
                             </div>
