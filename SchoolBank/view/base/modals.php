@@ -396,13 +396,14 @@
                                 <div>
                                     <h3 style="color:#009785;" class="font-product margin-left-30">ACCOUNT:</h3>
                                 </div>
-                                <div>
+                                <div class='form-group'>
                                     <label for='ACID' class='control-label col-md-4'>Account ID</label>
                                     <div class='col-md-8'>
-                                        <input readonly='readonly' type='text' class='mdl-user-input-update form-control padding-left10 ' id='ACID' name='ACID' required='required'>
-                                        <span class='help-block'></code></span>
+                                        <input readonly='readonly' type='text' class='form-control padding-left10 ' id='ACID' name='ACID' required='required'>
+                                        <span class='help-block'><code></code></span>
                                     </div>
                                 </div>
+                               
                                 <div class='form-group'>
                                     <label for='stat' class='control-label col-md-4'>Status</label>
                                     <div class='col-md-8'>
