@@ -30,8 +30,8 @@
                         <tr>       
                             <td class="text-center font-roboto color-a2">Account Number</td>
                             <td class="text-center font-roboto color-a2">NAME</td>
-                            <td class="text-center font-roboto color-a2">DEPARTMENT</td>
-                            <td class="text-center font-roboto color-a2">PRODUCT</td>
+                            <td class="text-center font-roboto color-a2">SECTION</td>
+                            <td class="text-center font-roboto color-a2">CLIENT TYPE</td>
                             <td class="text-center font-roboto color-a2">ACTION</td>
                         </tr>
                 </thead>
@@ -59,15 +59,19 @@
                                         <form method="POST" action="/app/controller/mdl-clientView.php">         
                                             
                                             <?php
-                                                
-                                                if($_SESSION['users']['user_level'] != 3){
+                                                    if($_SESSION['users']['user_level'] == 1 || $_SESSION['users']['user_level'] == 2){
+                                                        echo "
+                                                            <button data-id='$AID' name='btn-deposit' type='button' style='float:left;' rel='tooltip' data-original-title='Deposit' class='float-left btn btn-warning btn-raised btn-sm btn-deposit'>
+                                                                <i class='material-icons'>account_balance_wallet</i>
+                                                            </button>
+                                                            <button data-id='$AID' name='btn-withdrawal' type='button' style='float:left;' rel='tooltip' data-original-title='Withdrawal' class='float-left btn btn-link btn-raised btn-sm btn-withdrawal'>
+                                                                <i class='material-icons'>credit_card</i>
+                                                            </button>
+                                                        ";
+                                                    }
+                                                        
+                                                    if($_SESSION['users']['user_level'] != 3){
                                                     echo "
-                                                        <button data-id='$AID' name='btn-deposit' type='button' style='float:left;' rel='tooltip' data-original-title='Deposit' class='float-left btn btn-warning btn-raised btn-sm btn-deposit'>
-                                                            <i class='material-icons'>account_balance_wallet</i>
-                                                        </button>
-                                                        <button data-id='$AID' name='btn-withdrawal' type='button' style='float:left;' rel='tooltip' data-original-title='Withdrawal' class='float-left btn btn-link btn-raised btn-sm btn-withdrawal'>
-                                                            <i class='material-icons'>credit_card</i>
-                                                        </button>
                                                         <button data-id='$AID' data-acid='$ACID' name='btn-account-view' type='button' style='float:left;' rel='tooltip' data-original-title='Transaction History' class='float-left btn btn-success btn-raised btn-sm btn-view-account-client'>
                                                             <i class='material-icons'>history</i>
                                                         </button>
