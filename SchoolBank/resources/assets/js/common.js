@@ -289,6 +289,7 @@ $(document).ready(function(){
                                                 if(data == true){
                                                     swal({title: "Success", text: "Transaction Completed !", type: "success"},
                                                         function(){ 
+                                                            window.open('/getFile/Amortization.php', '_blank');
                                                             location.reload();
                                                         }
                                                     );
@@ -315,7 +316,8 @@ $(document).ready(function(){
                             
                             if(data == true){
                                 swal({title: "Success", text: "Transaction Completed !", type: "success"},
-                                    function(){ 
+                                    function(){
+                                        window.open('/getFile/Amortization.php', '_blank');
                                         location.reload();
                                     }
                                 );
@@ -380,7 +382,9 @@ $(document).ready(function(){
                 swal({title: "Error", text: "Transaction Amount should be greater than 0", type: "error"});
                 return false;
             }
-            if($('#userBalance').val() < $('#withdrawal_amount').val()){
+            alert($('#withdrawal_amount').val());
+            alert($('#userBalance').val());
+            if(parseFloat($('#userBalance').val()) < parseFloat($('#withdrawal_amount').val())){
                 swal({title: "Error", text: "not enough balance", type: "error"});
                 return false;
             }
@@ -438,6 +442,7 @@ $(document).ready(function(){
                                                     if(data == true){
                                                         swal({title: "Success", text: "Transaction Compelted !", type: "success"},
                                                             function(){ 
+                                                                window.open('/getFile/Amortization.php', '_blank');
                                                                 location.reload();
                                                             }
                                                         );
@@ -465,6 +470,7 @@ $(document).ready(function(){
                                 if(data == true){
                                     swal({title: "Success", text: "Transaction Completed !", type: "success"},
                                         function(){ 
+                                            window.open('/getFile/Amortization.php', '_blank');
                                             location.reload();
                                         }
                                     );

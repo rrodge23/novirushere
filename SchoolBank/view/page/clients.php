@@ -13,6 +13,7 @@
     <div class="col-md-12" style="padding:0 !important;">
         <div class="row" style="padding:0 !important;">
             <div class="col-md-12 col-lg-12" style="padding:0 !important;">
+                <h1>CLIENTS</h1>
                 <div class="container-fluid" style="padding:0 !important;">
                     <?php
                         if($_SESSION['users']['user_level'] == 3 || $_SESSION['users']['user_level'] == 1){

@@ -7,6 +7,7 @@
     <div class="row">
         
         <div class="container-fluid">
+            <h1>CLIENTS TYPES</h1>
             <table style="width:100%;">
                 <tr>
                     <td>

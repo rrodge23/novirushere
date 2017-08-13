@@ -8,7 +8,9 @@
         exit;
     }
 ?>
+
    <div class="row">
+        <h1>My Daily Transaction</h1>
         <table id="myTable2" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>

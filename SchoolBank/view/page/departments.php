@@ -7,7 +7,7 @@
     <div class="row">
         
         <div class="container-fluid">
-            
+            <h1>SECTIONS</h1>
             <table style="width:100% !important;">
                 <tr style="width:100% !important;">
                     <td style="float:right !important;">

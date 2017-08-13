@@ -6,7 +6,7 @@
     
     <div class="row">
         <div class="container-fluid">
-                
+                <h1>USERS</h1>
                 <button rel="tooltip" data-original-title="Add User" data-target="#modalUser" data-toggle="modal" class="inline btn btn-white btn-round btn-just-icon" style="height: 50px; width: 50px; float: right !important;">
                     <i class='material-icons'>add</i>
                 </button>

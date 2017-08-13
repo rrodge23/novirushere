@@ -27,7 +27,7 @@
                                 <td class="text-center font-roboto color-a2">Total Amount</td>
                                 <td class="text-center font-roboto color-a2">Teller</td>
                                 <?php
-                                    if($_SESSION['users']['user_level'] == 1){
+                                    if($_SESSION['users']['user_level'] == 1 || $_SESSION['users']['user_level'] == 4){
                                         echo "
                                             <td class='text-center font-roboto color-a2'>ACTION</td>
                                         ";
