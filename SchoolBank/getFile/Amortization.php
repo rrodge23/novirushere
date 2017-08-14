@@ -75,7 +75,7 @@ $html = '
 include('mpdf.php');
 
 $mpdf=new mPDF('c'); 
-
+$mpdf->AddPage('L','A4',0);
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->SetTitle('Amortization');
 $mpdf->SetAuthor('MyLoan User');
