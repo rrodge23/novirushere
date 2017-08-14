@@ -33,8 +33,11 @@
 
         public function getPreviousTransaction(){
             $con = $this->conn;
-            $sql ="SELECT * FROM transaction LEFT JOIN accounts ON transaction.ACID = accounts.ACID
-                LEFT JOIN client_info ON accounts.ID = client_info.ID ORDER BY trans_date DESC LIMIT 1
+            $sql ="SELECT * FROM transaction 
+                LEFT JOIN accounts ON transaction.ACID = accounts.ACID 
+                LEFT JOIN client_info ON accounts.ID = client_info.AID 
+                LEFT JOIN products ON accounts.PID = products.PID
+                ORDER BY trans_date DESC LIMIT 1
             ";
             $result = $con->query($sql);
             if($result->num_rows > 0){

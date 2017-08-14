@@ -289,7 +289,7 @@ $(document).ready(function(){
                                                 if(data == true){
                                                     swal({title: "Success", text: "Transaction Completed !", type: "success"},
                                                         function(){ 
-                                                            window.open('/getFile/Amortization.php', '_blank');
+                                                            window.open('/mpdf/transaction.php', '_blank');
                                                             location.reload();
                                                         }
                                                     );
@@ -317,7 +317,7 @@ $(document).ready(function(){
                             if(data == true){
                                 swal({title: "Success", text: "Transaction Completed !", type: "success"},
                                     function(){
-                                        window.open('/getFile/Amortization.php', '_blank');
+                                        window.open('/mpdf/transaction.php', '_blank');
                                         location.reload();
                                     }
                                 );
@@ -382,7 +382,10 @@ $(document).ready(function(){
                 swal({title: "Error", text: "Transaction Amount should be greater than 0", type: "error"});
                 return false;
             }
-           
+            if($('#withdrawal_amount').val() > $('#withdrawal_totbal').val()-100){
+                swal({title: "Error", text: "Not Enough Balance", type: "error"});
+                return false;
+            }
             if(parseFloat($('#userBalance').val()) < parseFloat($('#withdrawal_amount').val())){
                 swal({title: "Error", text: "not enough balance", type: "error"});
                 return false;

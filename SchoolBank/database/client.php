@@ -123,9 +123,7 @@
         public function postWithdrawal($data=NULL){
             $con = $this->conn;
             $date = date("Y-m-d H:i:s");
-            if($data['withdrawal_totbal']-$data['withdrawal_amount'] < 100){
-                return false;
-            }
+            
             $total_amt = $data['withdrawal_totbal']-$data['withdrawal_amount'];
             $sql = "INSERT INTO transaction(ACID,trans_type,trans_date,amount,teller,total_amount,user_id) 
                     VALUES('{$data['accIdWithdrawal']}','2','{$date}','{$data['withdrawal_amount']}','{$data['withdrawal_teller']}','{$total_amt}','{$_SESSION['users']['UID']}')";

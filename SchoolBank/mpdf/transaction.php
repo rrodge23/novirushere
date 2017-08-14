@@ -4,7 +4,16 @@
 
 $dbTrans = new modelTrans();
 $data = $dbTrans->getPreviousTransaction();
-$ACID = $data;
+$ACID = $data["ACID"];
+$AID = $data["AID"];
+$firstname = $data["firstname"];
+$middlename = $data["middlename"];
+$lastname = $data["lastname"];
+$trans_date = date("Y-m-d g:i a", strtotime($data["trans_date"]));
+$trans_type = ($data["trans_type"] == 1) ? "Deposit" : "Withdrawal";
+$product = $data["prod_name"];
+$teller = $data["teller"];
+$amount = number_format($data["amount"],2,'.',',');
 
 $html = '
 <!DOCTYPE html>
@@ -18,15 +27,25 @@ $html = '
         <table style="width:100%;">
             <tr>
                 <td style="width:66.66%;padding10px;">
-                    <div>
-                        
+                    <div style="border-bottom:1px solid #ddd;border-right:1px solid #ddd;">
+                        <span style="font-size:50px;"><b>SCHOOL BANKING</b></span>
                     </div>
                 </td>
                 <td style="width:33.33%;padding:10px;">
-                    <div>
-                    
+                    <div style="">
+                        <span style="font-size:20px;float:right;"><b>INVOICE</b></span>
                     </div>
                 </td>
+               
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </td>
+                
             </tr>
             <tr>
                 <td style="width:60.00%;padding:10px;">
@@ -54,16 +73,22 @@ $html = '
                 <td style="width:39.99%;padding:10px;">
                     <table style="width:100%;">
                         <tr>
-                            <td style="width:50%;">
+                            <td style="width:45%;">
                                 <div>
                                     <span><b>Date Generated</b></span>
                                 </div>
                             </td>
-                            <td>
+                            <td style="width:2%;">
                                 <div>
-                                    <span><b>:</b></span>
+                                    <span><b>:</span>
                                 </div>
                             </td>
+                            <td>
+                                <div>
+                                    <span><b>'.$trans_date.'</b></span>
+                                </div>
+                            </td>
+                           
                         </tr>
                     </table> 
                 </td>
@@ -77,9 +102,14 @@ $html = '
                                     <span><b>Name</b></span>
                                 </div>
                             </td>
+                            <td style="width:2%;">
+                                <div>
+                                    <span><b>:</span>
+                                </div>
+                            </td>
                             <td>
                                 <div>
-                                    <span><b>:</b></span>
+                                    <span><b>'.$lastname.', '.$firstname.' '.$middlename.'</b></span>
                                 </div>
                             </td>
                         </tr>
@@ -101,9 +131,14 @@ $html = '
                                     <span><b>Client Type</b></span>
                                 </div>
                             </td>
+                            <td style="width:2%;">
+                                <div>
+                                    <span><b>:</span>
+                                </div>
+                            </td>
                             <td>
                                 <div>
-                                    <span><b>:</b></span>
+                                    <span><b>'.$product.'</b></span>
                                 </div>
                             </td>
                         </tr>
@@ -123,11 +158,6 @@ $html = '
             <tr style="width:100%;">
                 <td class="td-header">
                     <div>
-                        <span><b>Transaction Date</b></span>
-                    </div>
-                </td>
-                <td class="td-header">
-                    <div>
                         <span><b>Transaction Type</b></span>
                     </div>
                 </td>
@@ -145,22 +175,17 @@ $html = '
             <tr style="width:100%;">
                 <td class="td-list">
                     <div>
-                        <span><b>Amount</b></span>
+                        <span><b>'.$trans_type.'</b></span>
                     </div>
                 </td>
                 <td class="td-list">
                     <div>
-                        <span><b>Amount</b></span>
+                        <span><b>'.$teller.'</b></span>
                     </div>
                 </td>
                 <td class="td-list">
                     <div>
-                        <span><b>Amount</b></span>
-                    </div>
-                </td>
-                <td class="td-list">
-                    <div>
-                        <span><b>Amount</b></span>
+                        <span><b>'.$amount.'</b></span>
                     </div>
                 </td>
             </tr>

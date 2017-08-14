@@ -35,7 +35,8 @@
                             $trans_type = ($r['trans_type'] == 1) ? 'Deposit' : 'Withdrawal';
                             $amount = $r['amount'];
                             $totalUserBalance = ($r['trans_type'] == 1) ? $totalUserBalance+$amount : $totalUserBalance-$amount;
-                            $total_amount = $r['total_amount'];
+                            $amount = number_format($amount,2,'.',',');
+                            $total_amount = number_format($r['total_amount'],2,'.',',');
                             echo "
                                 <tr>  
                                     <td class='text-center checked'>$id</td>
@@ -53,7 +54,7 @@
                 ?>
             </tbody>
         </table>
-        <h1>Total Balance: <?=$totalUserBalance;?></h1>
+        <h1>Total Balance: <?php echo number_format($totalUserBalance,2,'.',','); ?></h1>
    </div>
 <?php
     include "../../view/base/footer.php";
