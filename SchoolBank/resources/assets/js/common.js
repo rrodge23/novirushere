@@ -441,8 +441,10 @@ $(document).ready(function(){
                                                     if(data == true){
                                                         swal({title: "Success", text: "Transaction Compelted !", type: "success"},
                                                             function(){ 
+                                                                
                                                                 window.open('/mpdf/transaction.php', '_blank');
                                                                 location.reload();
+                                                                
                                                             }
                                                         );
                                                     }else{

@@ -1,87 +1,183 @@
 <?php
  
+ include $_SERVER['DOCUMENT_ROOT'] . "database/transaction.php";
 
+$dbTrans = new modelTrans();
+$data = $dbTrans->getPreviousTransaction();
+$ACID = $data;
 
 $html = '
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <style>'.file_get_contents('bootstrap.css').'</style>
-    </head>
-    <body>
-        
-<div class="row">
- <div class="col-md-12 text-center">
-	<h3>Borrower Amortization Table</h3>
- </div>
- <br>
- <div class="col-md-12">
-	<table>
-		<tr>
-			<td colspan="3" width="100%">Name: <span style="font-weight:bold;">sdfsdfsdf</span></td>
-			<td>Date Generated: <span style="font-weight:bold;">2323</span></td>
-		</tr>
-		<tr>
-			<td colspan="3" width="100%">Loan Amount: <span style="font-weight:bold;">sdfsdf</span></td>
-			<td>Interest Amount: <span style="font-weight:bold;">'.number_format(232,2,'.',',').'</span></td>
-		</tr>
-		<tr>
-			<td colspan="3" width="100%">Date Granted: <span style="font-weight:bold;">sdf</span></td>
-			<td>Date Maturity: <span style="font-weight:bold;">sdfsdf</span></td>
-		</tr>
-		<tr>
-			<td colspan="3" width="100%">Payment Interval: <span style="font-weight:bold;">sdfsdf</span></td>
-			<td>No. of Amortization: <span style="font-weight:bold;">sdfsdf</span></td>
-		</tr>
-		<tr>
-			<td colspan="3" width="100%">Term: <span style="font-weight:bold;">sfdf Days</span></td>
-		</tr>
-	</table>
-	
-  <div class="col-md-12">
- <hr>
-<table class="amort_table">
-	<thead>
-		<tr class="headerrow">
-			<th>Date</th>
-			<th>Principal</th>
-			<th>Interest</th>
-			<th>Total</th>
-		</tr>
-	</thead>
-		<tbody>
-	
-		<tr class="oddrow">
-			<td>sdfsd</td>
-			<td>dfdsf</td>
-			<td>sdfdsf</td>
-			<td>dfsdfsdf</td>
-		</tr>
-	
-	
-	
-	<tr>
-		<th>Grand Total</th>
-		<th>'.number_format(2323,2,'.',',').'</th>
-		<th>'.number_format(2323,2,'.',',').'</th>
-		<th>'.number_format(223,2,'.',',').'</th>
-	</tr>
-	</tbody>
-	</table>
-	</div>
-	</div>
-</div>
-</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>'.file_get_contents('bootstrap.css').'</style>
+</head>
+<body>
+    
+    <div class="row">
+        <table style="width:100%;">
+            <tr>
+                <td style="width:66.66%;padding10px;">
+                    <div>
+                        
+                    </div>
+                </td>
+                <td style="width:33.33%;padding:10px;">
+                    <div>
+                    
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:60.00%;padding:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:20%;">
+                                <div>
+                                    <span><b>Account no</b></span>
+                                </div>
+                            </td>
+                            <td style="width:2%;">
+                                <div>
+                                    <span><b>:</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span><b>'.$ACID.'</b></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </td>
+                <td style="width:39.99%;padding:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:50%;">
+                                <div>
+                                    <span><b>Date Generated</b></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span><b>:</b></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table> 
+                </td>
+            </tr>
+            <tr>
+                <td style="width:66.66%;padding:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:20%;">
+                                <div>
+                                    <span><b>Name</b></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span><b>:</b></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </td>
+                <td style="width:33.33%;padding:10px;">
+                    <div>
+                        <span><b></b></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:66.66%;padding:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:20%;">
+                                <div>
+                                    <span><b>Client Type</b></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span><b>:</b></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width:33.33%;padding:10px;">
+                    <div>
+                        <span><b></b></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <hr>
+        <br>
+        <table style="width:100%;" class="list">
+            <tr style="width:100%;">
+                <td class="td-header">
+                    <div>
+                        <span><b>Transaction Date</b></span>
+                    </div>
+                </td>
+                <td class="td-header">
+                    <div>
+                        <span><b>Transaction Type</b></span>
+                    </div>
+                </td>
+                <td class="td-header">
+                    <div>
+                        <span><b>Teller</b></span>
+                    </div>
+                </td>
+                <td class="td-header">
+                    <div>
+                        <span><b>Amount</b></span>
+                    </div>
+                </td>
+            </tr>
+            <tr style="width:100%;">
+                <td class="td-list">
+                    <div>
+                        <span><b>Amount</b></span>
+                    </div>
+                </td>
+                <td class="td-list">
+                    <div>
+                        <span><b>Amount</b></span>
+                    </div>
+                </td>
+                <td class="td-list">
+                    <div>
+                        <span><b>Amount</b></span>
+                    </div>
+                </td>
+                <td class="td-list">
+                    <div>
+                        <span><b>Amount</b></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-    </body>
-    </html>
+
+    </div>
+
+</body>
+</html>
 ';
 
 include('mpdf.php'); // including mpdf.php
 $mpdf=new mPDF();
 $mpdf->WriteHTML($html);
 $mpdf->Output();
+
 exit;
 
 

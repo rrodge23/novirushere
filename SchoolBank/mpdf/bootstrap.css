@@ -365,40 +365,23 @@ form#bch-report .form-group {
 }
 /**************** END ANDROID LIKE AJAX LOADER****************/
 
-.se-pre-con {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(../images/Preloader_21.gif) center no-repeat #fff;
+.text-center{
+    text-align:center;
 }
 
-.lh-normal{
-	line-height:normal;
+.td-header{
+    background-color:#ddd !important;
+}
+.td-list{
+    border-bottom:1px solid #ddd;
+}
+.td-header, .td-list{
+    width:25%;
+    padding:10px;
+    padding-left:50px;  
+    
 }
 
-.width70vw{
-	width: 70vw;
-}
 
-.btn:hover:not(.btn-raised):not(.btn-link), .input-group-btn .btn:hover:not(.btn-raised):not(.btn-link), .btn:focus:not(.btn-raised):not(.btn-link), .input-group-btn .btn:focus:not(.btn-raised):not(.btn-link) {
-    background-color: rgba(153, 153, 153, 0.2);
-}
-table.amort_table{
-	border: 1px solid;
-	width: 100%;
-}
-table.amort_table tr{
-	border: 1px solid;
-	padding: 5px;
-}
-table.amort_table th,td{
-	padding: 5px;
-}
 
-table.amort_table th{
-	background: #4CAF50;
-	color: #fff;
-}
+
