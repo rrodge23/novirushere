@@ -11,7 +11,6 @@
     <link href= "<?= __CSS . 'morris.css';?>" rel="stylesheet" type="text/css"/> 
     <link href= "<?= __CSS . 'style.css';?>" rel="stylesheet" type="text/css"/> 
     <link href= "<?= __CSS . 'all-themes.min.css';?>" rel="stylesheet" type="text/css"/> 
-    <link href= "<?= __CSS . 'material-dashboard.css';?>" rel="stylesheet" type="text/css"/>
     <link href= "<?= __CSS . 'material-icons.css';?>" rel="stylesheet" type="text/css"/>
     <link href= "<?= __CSS . 'fa.css';?>" rel="stylesheet" type="text/css"/>
     <link href= "<?= __CSS . 'dataTables.css';?>" rel="stylesheet" type="text/css"/>
@@ -21,7 +20,6 @@
     <link href= "<?= __CSS . 'jquery-dropdown.css';?>" rel="stylesheet" type="text/css"/>
     <link href= "<?= __CSS . 'sweetalert.css';?>" rel="stylesheet" type="text/css"/>
     <link href= "<?= __CSS . 'default.css';?>" rel="stylesheet" type="text/css"/>
-    
     <style>
     
     </style>
