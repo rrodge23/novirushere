@@ -1,0 +1,15 @@
+
+#header{
+    
+}
+
+.container{
+    height: 100%;
+    width:100%;
+    background-color: blue;
+}
+
+#footer{
+    height: 100px;
+    background-color: black;
+}
